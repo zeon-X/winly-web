@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Sora:wght@100;200;300;400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+/* 
+  Note: The styles for this gradient grid background is heavily inspired by the creator of this amazing site (https://dub.sh) – all credits go to them! 
+*/
+
+.main {
+  width: 100vw;
+  min-height: 100vh;
+  background: #F8F8F8;
+}
+
+body{
+  background: #F8F8F8;
+}
+
+
+.bg-gray{
+  background-color:#F8F8F8 ;
+}
+.primary-red {
+  color:#FF3624
+}
+
+.text-dark {
+  color:#2E2C34
+}
+.text-light {
+  color:#504F54
+}
+
+.prim_text_sm{
+  font-size: 12px;
+  color: #2E2C34;
+  font-family: Sora;
+  font-weight: 600;
+}
+.sec_text_sm{
+  font-size: 12px;
+  color: #504F54;
+  font-family: Manrope;
+  font-weight: 600;
+}
+.prim_text_md{
+  font-size: 14px;
+  color: #2E2C34;
+  font-family: Sora;
+  font-weight: 600;
+}
+.sec_text_md{
+  font-size: 14px;
+  color: #504F54;
+  font-family: Manrope;
+  font-weight: 600;
+}
+
+.prim_text_lg_reg{
+  font-size: 16px;
+  color: #2E2C34;
+  font-family: Sora;
+  font-weight: 400;
+}
+.sec_text_lg_reg{
+  font-size: 16px;
+  color: #504F54;
+  font-family: Manrope;
+  font-weight: 400;
+}
+.prim_text_lg{
+  font-size: 16px;
+  color: #2E2C34;
+  font-family: Sora;
+  font-weight: 600;
+}
+.sec_text_lg{
+  font-size: 16px;
+  color: #504F54;
+  font-family: Manrope;
+  font-weight: 600;
+}
+
+.prim_text_xl{
+  font-size: 20px;
+  color: #2E2C34;
+  font-family: Sora;
+  font-weight: 600;
+}
+.sec_text_xl{
+  font-size: 20px;
+  color: #504F54;
+  font-family: Manrope;
+  font-weight: 600;
+}
+.prim_text_2xl{
+  font-size: 24px;
+  color: #2E2C34;
+  font-family: Sora;
+  font-weight: 600;
+}
+.sec_text_2xl{
+  font-size: 24px;
+  color: #504F54;
+  font-family: Manrope;
+  font-weight: 600;
+}
+
+
+
+
+.btn_primary{
+  max-width: 130px;
+  min-height: 53px;
+ background-color: #B6B4BA;
+  border-radius: 8px;
+  color:white;
+  font-size: 16px;
+  font-family: 'Sora';
+
+}
+.btn_outline{
+  padding: 10px 20px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #2E2C34;
+  border-radius: 8px;
+}
