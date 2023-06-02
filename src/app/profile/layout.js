@@ -34,7 +34,7 @@ export default function ProfileLayout({ children }) {
     },
     {
       title: "Offer",
-      link: "offer",
+      link: "offers",
       icon: offer,
     },
     {
@@ -54,7 +54,7 @@ export default function ProfileLayout({ children }) {
     },
     {
       title: "Notification Preferences",
-      link: "notification-preferences",
+      link: "notification",
       icon: notification,
     },
   ]);
@@ -71,7 +71,7 @@ export default function ProfileLayout({ children }) {
     Image: dp,
   });
   return (
-    <section className="max-w-7xl w-full mx-auto flex justify-between gap-10 items-start p-6">
+    <section className="max-w-[1440px] w-full mx-auto flex justify-between gap-10 items-start p-6">
       {/* w-[337px] */}
       <div className="w-1/4 flex flex-col gap-6">
         {/* PROFILE INFO */}

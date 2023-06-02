@@ -23,7 +23,7 @@ const wallet = () => {
     <div>
       <div>
         <p className="prim_text_2xl mb-8">Wallet</p>
-        <div className="min-w-[640px] min-h-[183px] bg-white rounded-xl flex flex-col justify-center items-center">
+        <div className="max-w-[640px] min-h-[183px] bg-white rounded-xl flex flex-col justify-center items-center">
           <p className="prim_text_lg_reg">Available balance for withdrawal</p>
           <p className="font-sora text-[40px]">$550</p>
         </div>

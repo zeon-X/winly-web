@@ -59,6 +59,18 @@ body{
   font-family: Manrope;
   font-weight: 600;
 }
+.prim_text_md_reg{
+  font-size: 14px;
+  color: #2E2C34;
+  font-family: Sora;
+  font-weight: 400;
+}
+.sec_text_md_reg{
+  font-size: 14px;
+  color: #504F54;
+  font-family: Manrope;
+  font-weight: 400;
+}
 
 .prim_text_lg_reg{
   font-size: 16px;
@@ -114,6 +126,16 @@ body{
 
 
 .btn_primary{
+  max-width: 130px;
+  min-height: 53px;
+ background-color: #FF3624;
+  border-radius: 8px;
+  color:white;
+  font-size: 16px;
+  font-family: 'Sora';
+
+}
+.btn_gray{
   max-width: 130px;
   min-height: 53px;
  background-color: #B6B4BA;

@@ -146,7 +146,7 @@ const persoalDetails = () => {
             type="submit"
             name="update"
             value="Update"
-            className="btn_primary"
+            className="btn_gray"
           />
         </form>
       </div>
