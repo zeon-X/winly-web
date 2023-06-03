@@ -15,11 +15,6 @@ import {
 } from "../../../public/assets/Icons";
 import Link from "next/link";
 
-export const metadata = {
-  title: "Profile | Winly",
-  description: "Ecommerce App",
-};
-
 export default function ProfileLayout({ children }) {
   const [navData, setNavData] = useState([
     {
