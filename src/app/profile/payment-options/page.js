@@ -23,7 +23,6 @@ const PaymentMethod = ({ po }) => {
             tabIndex={0}
             className="dropdown-content   bg-white rounded-lg shadow-xl w-52"
           >
-            <RequirePasswordModal />
             <li className="py-4 px-6">
               <label
                 htmlFor="reqPassModal"

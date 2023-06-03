@@ -122,6 +122,19 @@ body{
   font-weight: 600;
 }
 
+.prim_text_5xl_b{
+  font-size: 36px;
+  color: #2E2C34;
+  font-family: Sora;
+  font-weight: 700;
+}
+.sec_text_5xl_b{
+  font-size: 36px;
+  color: #504F54;
+  font-family: Manrope;
+  font-weight: 700;
+}
+
 
 
 
@@ -135,6 +148,15 @@ body{
   font-family: 'Sora';
 
 }
+.btn_white{
+  min-height: 53px;
+  background-color: white;
+  border-radius: 14px;
+  color:black;
+  font-size: 16px;
+  font-family: 'Sora';
+  padding: 2px 12px;
+}
 .btn_gray{
   max-width: 130px;
   min-height: 53px;
@@ -144,6 +166,19 @@ body{
   font-size: 16px;
   font-family: 'Sora';
 
+}
+.btn_gray_md{
+  min-height: 50px;
+ background-color: #F5F4FE;
+  border-radius: 8px;
+  color:white;
+  font-size: 16px;
+  font-family: 'Sora';
+  padding: 6px 20px;
+  display: flex ;
+  justify-content: center;
+  align-items: center;
+  color: #000;
 }
 .btn_outline{
   padding: 10px 20px;
