@@ -165,7 +165,14 @@ body{
   color:white;
   font-size: 16px;
   font-family: 'Sora';
-
+}
+.btn_gray_update{
+  min-width: 78px;
+  min-height: 42px;
+  border-radius: 12px;
+  color:black;
+  font-size: 16px;
+  font-family: 'Sora';
 }
 .btn_gray_md{
   min-height: 50px;
