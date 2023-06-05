@@ -7,32 +7,32 @@ import RequirePasswordModal from "@components/payment-options/RequirePasswordMod
 
 const PaymentMethod = ({ po }) => {
   return (
-    <div className="rounded-xl bg-white h-[220px] lg:w-[496px] sm:w-auto py-6 px-10">
+    <div className="rounded-xl bg_sec h-[220px] lg:w-[496px] sm:w-full py-6 px-10">
       <div className="flex justify-between items-start mb-3">
         <Image src={po?.icon} height={71} width={71} alt={po?.cardName} />
 
         <div className="dropdown dropdown-end">
           <label
             tabIndex={0}
-            className="w-[42px] h-[42px] cursor-pointer hover:scale-95 transition-all ease-in-out bg-gray rounded-full flex justify-center items-center"
+            className="w-[42px] h-[42px] cursor-pointer hover:scale-95 transition-all ease-in-out bg-info rounded-full flex justify-center items-center"
           >
             {moreHorizontal}
           </label>
 
           <ul
             tabIndex={0}
-            className="dropdown-content   bg-white rounded-lg shadow-xl w-52"
+            className="dropdown-content border border-[#EAEAEA]  bg-info rounded-lg shadow-xl w-52"
           >
             <li className="py-4 px-6">
               <label
                 htmlFor="reqPassModal"
-                className="prim_text_lg_reg cursor-pointer"
+                className="prim_text_lg_reg text-white cursor-pointer"
               >
                 See Details
               </label>
               {/* <a className="prim_text_lg_reg cursor-pointer">See Details</a> */}
             </li>
-            <div className="border-b border-b-slate-100 w-full" />
+            <div className="border-b border-b-[#EAEAEA] w-full" />
             <li className="py-4 px-6">
               <a className="prim_text_lg_reg cursor-pointer">Delete Gateway</a>
             </li>
@@ -74,9 +74,9 @@ const page = () => {
             return <PaymentMethod po={po} key={index} />;
           })}
 
-          <div className="lg:min-w-[496px] min-h-[183px] p-6 bg-white rounded-xl flex flex-col justify-center items-center">
+          <div className="lg:max-w-[496px] w-full min-h-[183px] p-6 bg_sec rounded-xl flex flex-col justify-center items-center">
             <p className="prim_text_lg_reg mb-3">Add more payment method</p>
-            <button className="btn_primary w-full lg:min-w-[300px]">
+            <button className="btn_primary lg:max-w-[130px] w-full lg:min-w-[300px]">
               Add Payment Method
             </button>
           </div>

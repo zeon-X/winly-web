@@ -22,14 +22,14 @@ const CartPage = () => {
   ]);
   return (
     <div>
-      <div className="flex flex-wrap justify-between items-start lg:gap-0 sm:gap-10">
+      <div className="flex lg:flex-row sm:flex-col justify-between items-start gap-10">
         <div className="lg:w-3/4 sm:w-full">
           <p className="prim_text_2xl mb-8">Cart</p>
           {/* PRODUCT */}
-          <div className="p-10 shadow-lg rounded-[24px] grid lg:grid-cols-1 sm:grid-cols-1 gap-8 bg-white max-w-[936px]">
+          <div className="lg:p-10 sm:p-4 shadow-lg rounded-[24px] grid grid-cols-1 gap-8 bg_sec max-w-[936px]">
             {cartData?.map((product) => {
               return (
-                <div className="flex flex-wrap justify-between items-center gap-6">
+                <div className="flex lg:flex-row md:flex-row sm:flex-col justify-between items-center gap-6">
                   {/* INFO */}
                   <div className="flex gap-10 justify-start items-center">
                     <Image
@@ -42,7 +42,7 @@ const CartPage = () => {
                     <div>
                       <p className="prim_text_lg"> {product?.title} </p>
                       <p className="sec_text_md_reg">{product?.prize}</p>
-                      <p className="font-bold text-[20px] font-sora text-primary-red mt-1 mb-6">
+                      <p className="font-bold text-[20px] font-sora text-primary-red mt-1 lg:mb-6 sm:mb-1">
                         {product?.price}
                       </p>
                       <p className="">
@@ -54,14 +54,14 @@ const CartPage = () => {
                     </div>
                   </div>
                   {/* COUNT */}
-                  <div className="flex gap-6 justify-center items-center">
-                    <button type="" className="btn_gray_update bg-[#F5F5F5]">
+                  <div className="flex lg:gap-6 sm:gap-2 justify-center items-center ">
+                    <button type="" className="btn_gray_update bg-info ">
                       -
                     </button>
-                    <button type="" className="btn_gray_update bg-[#EBEAED]">
+                    <button type="" className="btn_gray_update bg-neutral">
                       10
                     </button>
-                    <button type="" className="btn_gray_update bg-[#F5F5F5]">
+                    <button type="" className="btn_gray_update bg-info">
                       +
                     </button>
                   </div>
@@ -84,8 +84,8 @@ const CartPage = () => {
         </div>
         <div className="lg:w-1/4 sm:w-full">
           {/*TOTAL  */}
-          <div className="bg-white rounded-xl shadow-lg">
-            <div className="flex justify-between items-center p-6 border-b border-b-slate-200">
+          <div className="bg_sec rounded-xl shadow-lg">
+            <div className="flex justify-between items-center p-6 border-b border-b-neutral">
               <div className="">
                 <p className="prim_text_2xl font-bold  ">Total</p>
                 <p className="sec_text_md ">Including VAT</p>

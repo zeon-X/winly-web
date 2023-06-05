@@ -3,11 +3,12 @@ import React, { useState } from "react";
 import { eyeSvg } from "../../public/assets/Icons";
 
 const formDivCss =
-  "form-control bg-[#EEEEEE] px-6 py-2 rounded-2xl w-full max-width-className ";
+  "form-control bg-info px-6 py-2 rounded-[16px] w-full max-width-className";
 const formInputCss =
-  "p-1 focus:outline-none bg-transparent sec_text_xl w-full max-width-className";
+  "p-1 focus:outline-none bg-transparent sec_text_xl text-white w-full max-width-className";
 const formInputWarningCss = "sec_text_sm text-red-500";
-const formInputLabelCss = "text-[12px] text-[#2E2C34] font-[Sora]";
+const formInputLabelCss = "prim_text_sm_reg text-white";
+
 const ProfileInputDiv = ({
   name,
   placeholder,

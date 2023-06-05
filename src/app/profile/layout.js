@@ -68,9 +68,9 @@ export default function ProfileLayout({ children }) {
   return (
     <section className="max-w-[1440px] w-full mx-auto flex justify-between gap-10 items-start p-6">
       {/* w-[337px] */}
-      <div className="w-1/4 flex flex-col gap-6">
+      <div className="lg:w-1/4 sm:w-0 lg:flex sm:hidden flex-col gap-6">
         {/* PROFILE INFO */}
-        <div className="h-[246px] bg-white rounded-xl flex flex-col justify-center items-center">
+        <div className="h-[246px] bg_sec rounded-[24px] flex flex-col justify-center items-center">
           <Image
             src={userData.Image}
             height={112}
@@ -84,14 +84,14 @@ export default function ProfileLayout({ children }) {
           <p className="sec_text_lg">{userData?.email}</p>
         </div>
         {/* PROFILE NEVIGATION */}
-        <div className="bg-white rounded-xl">
+        <div className="bg_sec rounded-[24px]">
           {navData?.map((nav, index) => {
             return (
               <Link href={"/profile/" + nav?.link} key={index}>
                 <div className="flex gap-3 p-4">
                   {nav?.icon} <p className="prim_text_lg_reg">{nav?.title}</p>
                 </div>
-                <div className="border-b border-slate-100 w-full"></div>
+                <div className="border-b border-b-neutral w-full"></div>
               </Link>
             );
           })}
@@ -103,7 +103,7 @@ export default function ProfileLayout({ children }) {
       </div>
 
       {/* NEVIGATION PAGE LOADER DIV */}
-      <div className="w-3/4">{children}</div>
+      <div className="lg:w-3/4 sm:w-full">{children}</div>
     </section>
   );
 }

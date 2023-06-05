@@ -13,12 +13,12 @@ const OfferCard = ({ offer }) => {
             {offer?.title}
           </p>
         </div>
-        <button type="" className="btn_white ">
+        <button type="" className="btn_prim_user_db ">
           Avail Offer
         </button>
       </div>
 
-      <div className="p-4 bg-black rounded-[29px] grid lg:grid-cols-2 sm:grid-cols-1 gap-4">
+      <div className="p-4 bg_prim rounded-[29px] grid lg:grid-cols-2 sm:grid-cols-1 gap-4">
         {offer?.productsData?.map((pd, index) => {
           return <ProductCard pd={pd} key={index} />;
         })}

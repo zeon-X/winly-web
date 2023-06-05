@@ -4,7 +4,7 @@ import { visa, wcc, mc, cc, pp } from "../../../../public/assets/images";
 import Image from "next/image";
 
 const addCardImageClass =
-  "cursor-pointer hover:border hover:border-blue-500 rounded-lg";
+  "cursor-pointer bg-white hover:border hover:border-blue-500 rounded-lg";
 
 const wallet = () => {
   const [topUpMethod, setTopUpMethod] = useState([
@@ -23,9 +23,9 @@ const wallet = () => {
     <div>
       <div>
         <p className="prim_text_2xl mb-8">Wallet</p>
-        <div className="max-w-[640px] min-h-[183px] bg-white rounded-xl flex flex-col justify-center items-center">
+        <div className="max-w-[640px] min-h-[183px] bg_sec rounded-xl flex flex-col justify-center items-center">
           <p className="prim_text_lg_reg">Available balance for withdrawal</p>
-          <p className="font-sora text-[40px]">$550</p>
+          <p className="font-sora text-white text-[40px]">$550</p>
         </div>
 
         <p className="mt-10 mb-4 prim_text_lg">Select Top-up Method</p>
@@ -42,7 +42,9 @@ const wallet = () => {
           })}
 
           <div className="rounded-xl p-4 min-h-[136px] bg-white flex flex-col justify-center items-center">
-            <p className="text-[14px] font-sora mb-2">Debit/ Credit card</p>
+            <p className="prim_text_md mb-2" style={{ color: "black" }}>
+              Debit/ Credit card
+            </p>
             <div className="flex gap-2">
               <Image
                 src={pp}

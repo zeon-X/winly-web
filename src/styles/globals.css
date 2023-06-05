@@ -13,15 +13,25 @@
 .main {
   width: 100vw;
   min-height: 100vh;
-  background: #F8F8F8;
+  background-color: #1A1A1A;
 }
 
 body{
-  background: #F8F8F8;
+  background-color: #1A1A1A;
+}
+p,a{
+  color: white;
 }
 
 
-.bg-gray{
+.bg_prim{
+  background-color: #1A1A1A;
+}
+.bg_sec{
+  background-color: #2D2D2D;
+}
+
+.bg-nutral{
   background-color:#F8F8F8 ;
 }
 .primary-red {
@@ -35,102 +45,114 @@ body{
   color:#504F54
 }
 
+.prim_text_sm_reg{
+  font-size: 12px;
+  /* color: white; */
+  font-family: Sora;
+  font-weight: 400;
+}
+.sec_text_sm_reg{
+  font-size: 12px;
+  /* color: white; */
+  font-family: Manrope;
+  font-weight: 400;
+}
 .prim_text_sm{
   font-size: 12px;
-  color: #2E2C34;
+  /* color: white; */
   font-family: Sora;
   font-weight: 600;
 }
 .sec_text_sm{
   font-size: 12px;
-  color: #504F54;
+  /* color: white; */
   font-family: Manrope;
   font-weight: 600;
 }
 .prim_text_md{
   font-size: 14px;
-  color: #2E2C34;
+  /* color: white; */
   font-family: Sora;
   font-weight: 600;
 }
 .sec_text_md{
   font-size: 14px;
-  color: #504F54;
+  /* color: white; */
   font-family: Manrope;
-  font-weight: 600;
+  /* font-weight: 600; */
 }
 .prim_text_md_reg{
   font-size: 14px;
-  color: #2E2C34;
+  /* color: white; */
   font-family: Sora;
   font-weight: 400;
 }
 .sec_text_md_reg{
   font-size: 14px;
-  color: #504F54;
+  /* color: white; */
   font-family: Manrope;
   font-weight: 400;
 }
 
 .prim_text_lg_reg{
   font-size: 16px;
-  color: #2E2C34;
+  /* color: white; */
   font-family: Sora;
   font-weight: 400;
 }
 .sec_text_lg_reg{
   font-size: 16px;
-  color: #504F54;
+  /* color: white; */
   font-family: Manrope;
   font-weight: 400;
 }
 .prim_text_lg{
   font-size: 16px;
-  color: #2E2C34;
+  /* color: white; */
   font-family: Sora;
   font-weight: 600;
 }
 .sec_text_lg{
   font-size: 16px;
-  color: #504F54;
+  /* color: white; */
   font-family: Manrope;
   font-weight: 600;
 }
 
 .prim_text_xl{
   font-size: 20px;
-  color: #2E2C34;
+  /* color: white; */
   font-family: Sora;
   font-weight: 600;
 }
 .sec_text_xl{
   font-size: 20px;
-  color: #504F54;
+  /* color: white; */
   font-family: Manrope;
   font-weight: 600;
 }
 .prim_text_2xl{
   font-size: 24px;
-  color: #2E2C34;
+  /* color: white; */
   font-family: Sora;
   font-weight: 600;
 }
 .sec_text_2xl{
   font-size: 24px;
-  color: #504F54;
+  /* color: white; */
   font-family: Manrope;
   font-weight: 600;
 }
 
 .prim_text_5xl_b{
   font-size: 36px;
-  color: #2E2C34;
+  /* color: white; */
   font-family: Sora;
   font-weight: 700;
 }
 .sec_text_5xl_b{
   font-size: 36px;
-  color: #504F54;
+  /* color: white; */
   font-family: Manrope;
   font-weight: 700;
 }
@@ -139,7 +161,6 @@ body{
 
 
 .btn_primary{
-  max-width: 130px;
   min-height: 53px;
  background-color: #FF3624;
   border-radius: 8px;
@@ -148,20 +169,33 @@ body{
   font-family: 'Sora';
 
 }
-.btn_white{
-  min-height: 53px;
-  background-color: white;
+.btn_prim_user_db{
+  min-height: 50px;
+  background-color: #444444;
   border-radius: 14px;
-  color:black;
+  color:white;
   font-size: 16px;
   font-family: 'Sora';
   padding: 2px 12px;
 }
+.btn_sec_user_db{
+  min-height: 50px;
+  background-color: #2E2D36;
+  border-radius: 14px;
+  color:white;
+  font-size: 16px;
+  font-family: 'Sora';
+  padding: 6px 20px;
+  border:1px solid #444444;
+  display: flex ;
+  justify-content: center;
+  align-items: center;
+}
 .btn_gray{
   max-width: 130px;
   min-height: 53px;
- background-color: #B6B4BA;
-  border-radius: 8px;
+ background-color: #444444;
+  border-radius: 14px;
   color:white;
   font-size: 16px;
   font-family: 'Sora';
@@ -170,7 +204,7 @@ body{
   min-width: 78px;
   min-height: 42px;
   border-radius: 12px;
-  color:black;
+  color:white;
   font-size: 16px;
   font-family: 'Sora';
 }
@@ -191,6 +225,6 @@ body{
   padding: 10px 20px;
   border-style: solid;
   border-width: 1px;
-  border-color: #2E2C34;
+  border-color: white;
   border-radius: 8px;
 }

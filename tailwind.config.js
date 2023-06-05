@@ -22,6 +22,18 @@ module.exports = {
         "8xl": "1440px",
       },
     },
+    screens: {
+      sm: "360px",
+      // => @media (min-width: 640px) { ... }
+      md: "768px",
+      // => @media (min-width: 768px) { ... }
+      lg: "1024px",
+      // => @media (min-width: 1024px) { ... }
+      xl: "1280px",
+      // => @media (min-width: 1280px) { ... }
+      "2xl": "1536px",
+      // => @media (min-width: 1536px) { ... }
+    },
   },
   daisyui: {
     themes: [
@@ -33,11 +45,11 @@ module.exports = {
 
           accent: "#d6d3d1",
 
-          neutral: "#f8f8f8",
+          neutral: "#1A1A1A",
 
           "base-100": "#f3f4f6",
 
-          info: "#2e2c34",
+          info: "#444444",
 
           success: "#65a30d",
 

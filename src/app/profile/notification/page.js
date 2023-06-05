@@ -5,7 +5,7 @@ const page = () => {
     <div>
       <div>
         <p className="prim_text_2xl mb-8">Notification preferences</p>
-        <div className="lg:w-[520px] sm:w-auto rounded-xl bg-white">
+        <div className="lg:w-[520px] sm:w-auto rounded-xl bg_sec">
           <div className="p-6">
             <p className="prim_text_xl">Promotional Emails</p>
             <p className="prim_text_md_reg ">
@@ -13,7 +13,7 @@ const page = () => {
             </p>
           </div>
           {/* BORDER */}
-          <div className="border-b border-b-slate-100 w-full" />
+          <div className="border-b border-b-neutral w-full" />
 
           <div className="p-6 flex flex-col gap-6">
             <div className="flex justify-between items-center">
