@@ -52,12 +52,12 @@ const Nav = () => {
             {!isLoggedIn ? (
               <>
                 <li>
-                  <a href="" className="prim_text_lg_reg">
+                  <a href="/login" className="prim_text_lg_reg">
                     Login
                   </a>
                 </li>
                 <li>
-                  <a href="" className="btn_outline prim_text_lg_reg">
+                  <a href="/register" className="btn_outline prim_text_lg_reg">
                     Register
                   </a>
                 </li>

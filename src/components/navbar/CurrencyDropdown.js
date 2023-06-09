@@ -34,7 +34,7 @@ const CurrencyDropdown = () => {
       </label>
       <ul
         tabIndex={0}
-        className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+        className="dropdown-content menu p-2 shadow bg_sec rounded-box mt-2"
       >
         {currencyData.map((x) => {
           return (

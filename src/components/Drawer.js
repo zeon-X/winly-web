@@ -1,3 +1,4 @@
+"use client";
 import Nav from "./Nav";
 import { closeBtn } from "../../public/assets/Icons";
 import logo from "../../public/assets/logo/Winly Logo 1.png";
@@ -7,8 +8,10 @@ import CurrencyDropdown from "./navbar/CurrencyDropdown";
 import CartComponent from "./navbar/CartComponent";
 import ClientDashboardNav from "./navbar/ClientDashboardNav";
 import Footer from "./Footer";
+import { useState } from "react";
 
 const Drawer = ({ children }) => {
+  const [isLoggedIn, setIsLoggedIn] = useState(0);
   return (
     <div className="drawer drawer-end">
       <input id="navbarToggle" type="checkbox" className="drawer-toggle" />
@@ -40,7 +43,9 @@ const Drawer = ({ children }) => {
             </label>
           </li>
 
-          <PrimaryLinks />
+          <>
+            <PrimaryLinks />
+          </>
           <li>
             <CurrencyDropdown />
           </li>
@@ -49,9 +54,24 @@ const Drawer = ({ children }) => {
             <CartComponent />
           </li>
 
-          <li>
-            <ClientDashboardNav />
-          </li>
+          {!isLoggedIn ? (
+            <>
+              <li>
+                <a href="/login" className="prim_text_lg_reg">
+                  Login
+                </a>
+              </li>
+              <li>
+                <a href="/register" className=" prim_text_lg_reg">
+                  Register
+                </a>
+              </li>
+            </>
+          ) : (
+            <li>
+              <ClientDashboardNav />
+            </li>
+          )}
         </ul>
       </div>
     </div>
