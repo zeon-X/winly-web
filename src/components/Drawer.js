@@ -1,9 +1,11 @@
-"use client";
 import Nav from "./Nav";
-import Link from "next/link";
 import { closeBtn } from "../../public/assets/Icons";
 import logo from "../../public/assets/logo/Winly Logo 1.png";
 import Image from "next/image";
+import PrimaryLinks from "./navbar/PrimaryLinks";
+import CurrencyDropdown from "./navbar/CurrencyDropdown";
+import CartComponent from "./navbar/CartComponent";
+import ClientDashboardNav from "./navbar/clientDashboardNav";
 
 const Drawer = ({ children }) => {
   return (
@@ -35,19 +37,17 @@ const Drawer = ({ children }) => {
             </label>
           </li>
 
+          <PrimaryLinks />
           <li>
-            <Link href={"/"}>Home</Link>
+            <CurrencyDropdown />
           </li>
+
           <li>
-            <Link href={"/products"}>Products</Link>
+            <CartComponent />
           </li>
+
           <li>
-            <Link href={"/contact"}>Neel Help? Contact us</Link>
-          </li>
-          <li>
-            <Link href={"/"}>
-              Call <span className="primary-red">08056482623</span>
-            </Link>
+            <ClientDashboardNav />
           </li>
         </ul>
       </div>

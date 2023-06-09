@@ -6,7 +6,7 @@ import Image from "next/image";
 const addCardImageClass =
   "cursor-pointer bg-white hover:border hover:border-blue-500 rounded-lg";
 
-const wallet = () => {
+const WalletPage = () => {
   const [topUpMethod, setTopUpMethod] = useState([
     {
       image: wcc,
@@ -32,7 +32,10 @@ const wallet = () => {
         <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-6">
           {topUpMethod?.map((card) => {
             return (
-              <div className="rounded-xl p-4 min-h-[136px] bg-white flex flex-col justify-center items-center">
+              <div
+                style={{ backgroundColor: "white" }}
+                className="rounded-xl p-4 min-h-[136px] bg-white flex flex-col justify-center items-center"
+              >
                 <Image src={card?.image} width={106} alt={card?.name} />
                 {/* {(card?.no !== "" || card?.no !== null) && (
                   <p className="sec_text_sm">{card?.no}</p>
@@ -41,7 +44,10 @@ const wallet = () => {
             );
           })}
 
-          <div className="rounded-xl p-4 min-h-[136px] bg-white flex flex-col justify-center items-center">
+          <div
+            style={{ backgroundColor: "white" }}
+            className="rounded-xl p-4 min-h-[136px]  flex flex-col justify-center items-center"
+          >
             <p className="prim_text_md mb-2" style={{ color: "black" }}>
               Debit/ Credit card
             </p>
@@ -82,4 +88,4 @@ const wallet = () => {
   );
 };
 
-export default wallet;
+export default WalletPage;

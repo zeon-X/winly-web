@@ -45,7 +45,7 @@ const PaymentMethod = ({ po }) => {
   );
 };
 
-const page = () => {
+const PaymentOptionsPage = () => {
   const [paymentOptions, setPaymentOptions] = useState([
     {
       nameOnCard: "Md. Shefat Zeon",
@@ -86,4 +86,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default PaymentOptionsPage;

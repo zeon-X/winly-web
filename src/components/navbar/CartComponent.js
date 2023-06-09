@@ -5,10 +5,7 @@ import { cartSvg } from "../../../public/assets/Icons";
 const CartComponent = () => {
   const [cartItem, setCartItem] = useState([]);
   return (
-    <a
-      href=""
-      className="prim_text_lg_reg flex justify-center items-center gap-2"
-    >
+    <a href="/cart" className="prim_text_lg_reg flex  items-center gap-2">
       {cartSvg}
       <span>
         Cart{" "}

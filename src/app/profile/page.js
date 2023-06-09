@@ -1,7 +1,9 @@
 "use client";
 
+import PersoalDetails from "./personal-details/page";
+
 const page = () => {
-  return <div></div>;
+  return <PersoalDetails />;
 };
 
 export default page;

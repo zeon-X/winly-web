@@ -7,7 +7,7 @@ const formInputCss =
 const formInputWarningCss = "sec_text_sm text-red-500";
 const formInputLabelCss = "prim_text_sm_reg text-white";
 
-const persoalDetails = () => {
+const PersoalDetails = () => {
   return (
     <div>
       <div>
@@ -154,4 +154,4 @@ const persoalDetails = () => {
   );
 };
 
-export default persoalDetails;
+export default PersoalDetails;
