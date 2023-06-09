@@ -1,4 +1,4 @@
-import ClientDashboardNav from "@components/navbar/clientDashboardNav";
+import ClientDashboardNav from "@components/navbar/ClientDashboardNav";
 import "@styles/globals.css";
 
 export default function ProfileLayout({ children }) {
