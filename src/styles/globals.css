@@ -45,6 +45,13 @@ p,a{
   color:#504F54
 }
 
+
+
+.nav_menu>li{
+  margin-bottom: 32px;
+  font-size: 16px;
+}
+
 .prim_text_sm_reg{
   font-size: 12px;
   /* color: white; */
