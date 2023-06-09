@@ -34,7 +34,7 @@ const WalletPage = () => {
             return (
               <div
                 style={{ backgroundColor: "white" }}
-                className="rounded-xl p-4 min-h-[136px] bg-white flex flex-col justify-center items-center"
+                className="rounded-xl p-4 min-h-[136px]  flex flex-col justify-center items-center"
               >
                 <Image src={card?.image} width={106} alt={card?.name} />
                 {/* {(card?.no !== "" || card?.no !== null) && (

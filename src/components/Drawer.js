@@ -5,7 +5,8 @@ import Image from "next/image";
 import PrimaryLinks from "./navbar/PrimaryLinks";
 import CurrencyDropdown from "./navbar/CurrencyDropdown";
 import CartComponent from "./navbar/CartComponent";
-import ClientDashboardNav from "./navbar/clientDashboardNav";
+import ClientDashboardNav from "./navbar/ClientDashboardNav";
+import Footer from "./Footer";
 
 const Drawer = ({ children }) => {
   return (
@@ -17,11 +18,13 @@ const Drawer = ({ children }) => {
           <Nav />
         </div>
         {/* <!-- Page content here --> */}
-        {children}
+        <div className="w-full min-h-fit">{children}</div>
+
+        <Footer />
       </div>
       <div className="drawer-side ">
         <label htmlFor="navbarToggle" className="drawer-overlay"></label>
-        <ul className="nav_menu p-6 w-80 bg-base-100">
+        <ul className="nav_menu bg_prim p-10 w-full bg-base-100">
           {/* <!-- Sidebar content here --> */}
           <li className="flex justify-between items-center">
             <Image
