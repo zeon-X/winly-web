@@ -235,3 +235,18 @@ p,a{
   border-color: white;
   border-radius: 8px;
 }
+.white_btn{
+  padding: 10px 20px;
+  background-color: white;
+ color: black;
+ font-family: Sora;
+  border-radius: 14px;
+}
+
+.white_btn_outline{
+  padding: 10px 14px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: white;
+  border-radius: 14px;
+}

@@ -343,7 +343,39 @@ const closeBtn = (
   </svg>
 );
 
+const LeftArrowWhite = (
+  <svg
+    width="25"
+    height="25"
+    viewBox="0 0 25 25"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M15.7562 16.6671L11.1762 12.0771L15.7562 7.48715L14.3462 6.07715L8.34619 12.0771L14.3462 18.0771L15.7562 16.6671Z"
+      fill="white"
+    />
+  </svg>
+);
+
+const RightArrowWhite = (
+  <svg
+    width="25"
+    height="25"
+    viewBox="0 0 25 25"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M8.93604 16.6671L13.516 12.0771L8.93604 7.48715L10.346 6.07715L16.346 12.0771L10.346 18.0771L8.93604 16.6671Z"
+      fill="white"
+    />
+  </svg>
+);
+
 export {
+  LeftArrowWhite,
+  RightArrowWhite,
   closeBtn,
   closePopUp,
   calenderSvg,

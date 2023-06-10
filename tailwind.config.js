@@ -19,7 +19,7 @@ module.exports = {
         "sec-dark": "#504F54",
       },
       screens: {
-        "8xl": "1440px",
+        "8xl": "1920px",
       },
     },
     screens: {
