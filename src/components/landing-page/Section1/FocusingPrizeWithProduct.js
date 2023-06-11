@@ -18,6 +18,8 @@ const FocusingPrizeWithProduct = () => {
         name: "Rolax Watch",
         coverImage: LTicketPrizeProduct1,
         galleryImages: [LTicketPrizeProduct1],
+        stock: 20000,
+        sold: 125000,
       },
 
       prize: {

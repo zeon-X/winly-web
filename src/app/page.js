@@ -1,4 +1,5 @@
 import FocusingPrizeWithProduct from "@components/landing-page/Section1/FocusingPrizeWithProduct";
+import SellingFastProducts from "@components/landing-page/Section1/SellingFastProducts";
 import WinnerPrizeDisplay from "@components/landing-page/Section1/WinnerPrizeDisplay";
 
 const Home = () => {
@@ -19,7 +20,9 @@ const Home = () => {
                 <WinnerPrizeDisplay />
               </div>
               {/* PRODUCTS */}
-              <div></div>
+              <div>
+                <SellingFastProducts />
+              </div>
             </div>
           </div>
         </section>

@@ -250,3 +250,10 @@ p,a{
   border-color: white;
   border-radius: 14px;
 }
+
+
+.white_btn_outline_md{
+  padding: 6px 10px;
+  background-color: #424242;
+  border-radius: 14px;
+}
