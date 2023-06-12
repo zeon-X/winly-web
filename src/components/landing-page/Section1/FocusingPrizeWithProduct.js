@@ -88,11 +88,12 @@ const FocusingPrizeWithProduct = () => {
                   </button>
                 </div>
                 <Image
-                  className="cursor-pointer"
+                  className="cursor-pointer opacity-0 transition-opacity duration-1000"
                   src={data[selectedItem]?.product?.coverImage}
                   height={105}
                   width={110}
                   alt={data[selectedItem]?.product?.name + " image"}
+                  onLoadingComplete={(img) => img.classList.remove("opacity-0")}
                 />
               </div>
             </div>

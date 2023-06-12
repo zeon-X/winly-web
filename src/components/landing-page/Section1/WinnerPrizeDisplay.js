@@ -15,7 +15,8 @@ const WinnerPrizeDisplay = () => {
         height={440}
         width={783}
         alt="total prize winners"
-        className="rounded-[24px]"
+        className="rounded-[24px] opacity-0 transition-opacity duration-1000"
+        onLoadingComplete={(img) => img.classList.remove("opacity-0")}
       />
     </div>
   );

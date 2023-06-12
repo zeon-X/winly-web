@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   LeftArrowWhite,
   RightArrowWhite,
@@ -65,7 +65,72 @@ const SellingFastProducts = () => {
         coverImage: "https://i.ibb.co/B2BXQH3/Rectangle-1.png",
       },
     },
+    {
+      InspirationTitle: "Win",
+      moto: "",
+
+      product: {
+        name: "Iphone 14 pro max",
+        coverImage: "https://i.ibb.co/f8rwKq9/Picture1.png",
+        galleryImages: ["https://i.ibb.co/f8rwKq9/Picture1.png"],
+        stock: 20000,
+        sold: 15500,
+      },
+
+      prize: {
+        name: "Tesla V3",
+        coverImage: "https://i.ibb.co/f8rwKq9/Picture1.png",
+      },
+    },
+    {
+      InspirationTitle: "Win",
+      moto: "",
+
+      product: {
+        name: "Samsung Level U2 ",
+        coverImage: "https://i.ibb.co/gMFq5CW/Picture2.png",
+        galleryImages: ["https://i.ibb.co/gMFq5CW/Picture2.png"],
+        stock: 20000,
+        sold: 15500,
+      },
+
+      prize: {
+        name: "Tesla V3",
+        coverImage: "https://i.ibb.co/gMFq5CW/Picture2.png",
+      },
+    },
   ]);
+  const [startFrom, setStartFrom] = useState(0);
+  const [endAt, setEndAt] = useState(data.length >= 3 ? 2 : data.length); //0 1 2
+  const [displayItems, setDisplayItems] = useState([]);
+  useEffect(() => {
+    let temItemData = [];
+    for (let i = startFrom; i <= endAt; i++) {
+      temItemData.push(data[i]);
+    }
+
+    setDisplayItems(temItemData);
+
+    console.log(temItemData);
+  }, [data, startFrom, endAt]);
+
+  const handleRightClick = () => {
+    let dataLen = data.length;
+    if (endAt + 1 >= dataLen) {
+      //no updates
+    } else {
+      setStartFrom((currentValue) => currentValue + 1);
+      setEndAt((currentValue) => currentValue + 1);
+    }
+  };
+  const handleLeftClick = () => {
+    if (startFrom - 1 < 0) {
+      //no updates
+    } else {
+      setStartFrom((currentValue) => currentValue - 1);
+      setEndAt((currentValue) => currentValue - 1);
+    }
+  };
   return (
     <div>
       <div className="rounded-tl-[24px] rounded-tr-[24px] rounded-bl-[24px] bg_sec pl-6 pt-6">
@@ -74,27 +139,19 @@ const SellingFastProducts = () => {
           <p className="text-[24px] font-extrabold">Selling Fast</p>
 
           <div className="flex gap-4">
-            <button
-              // onClick={() => handleOnClickChangeSelectedItem(1)}
-              className="white_btn_outline_md"
-            >
+            <button onClick={handleLeftClick} className="white_btn_outline_md">
               {LeftArrowWhite}
             </button>
-            <button
-              // onClick={() => handleOnClickChangeSelectedItem(-1)}
-              className="white_btn_outline_md"
-            >
+            <button onClick={handleRightClick} className="white_btn_outline_md">
               {RightArrowWhite}
             </button>
           </div>
         </div>
         {/* PRODUCTS */}
         <div className="grid grid-cols-3 gap-4">
-          {data?.map((item, index) => {
+          {displayItems?.map((item, index) => {
             let sellingProgress =
               (item?.product?.sold / item?.product?.stock) * 100;
-
-            console.log(sellingProgress);
             return (
               <div className="relative">
                 <Image
@@ -102,7 +159,11 @@ const SellingFastProducts = () => {
                   height={344}
                   width={243}
                   alt={item?.product?.name}
-                  className="opacity-0 transition-opacity duration-1000"
+                  className={
+                    index !== 2
+                      ? "rounded-[24px] rounded-tr-[24px] opacity-0 transition-opacity duration-1000"
+                      : "rounded-tl-[24px]  opacity-0 transition-opacity duration-1000"
+                  }
                   onLoadingComplete={(img) => img.classList.remove("opacity-0")}
                 />
 
