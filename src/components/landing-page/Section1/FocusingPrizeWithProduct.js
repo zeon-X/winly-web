@@ -40,7 +40,7 @@ const FocusingPrizeWithProduct = () => {
       },
 
       prize: {
-        name: "Tesla V3",
+        name: "Iphone 14 pro max",
         coverImage: "https://i.ibb.co/w6pPnXD/Picture1.jpg",
       },
     },
@@ -62,7 +62,7 @@ const FocusingPrizeWithProduct = () => {
   return (
     <>
       {/* FOR LARGE SCREEN */}
-      <div className="w-full lg:block sm:hidden ">
+      <div className="w-full lg:block md:block sm:hidden lg:h-full md:h-[781px]">
         {
           <div
             style={{
@@ -71,7 +71,7 @@ const FocusingPrizeWithProduct = () => {
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
             }}
-            className="relative h-[859px] rounded-[24px]"
+            className="relative max-h-[859px] h-full rounded-[24px]"
           >
             {/* <Image
               src={data[selectedItem]?.prize?.coverImage}
@@ -139,7 +139,7 @@ const FocusingPrizeWithProduct = () => {
       </div>
       {/* FOR SMALL SCREEN */}
 
-      <div className="w-auto lg:hidden sm:block overflow-x-auto ">
+      <div className="w-auto lg:hidden md:hidden sm:block overflow-x-auto ">
         <div
           style={{ width: `${data?.length * 340 + (data?.length - 1) * 8}px` }}
           className={"flex gap-2 "}

@@ -132,10 +132,13 @@ const SellingFastProducts = () => {
       setEndAt((currentValue) => currentValue - 1);
     }
   };
+
+  let widthForSM = data?.length * 158 + (data?.length - 1) * 8;
+  let widthForMD = data?.length * 384 + (data?.length - 1) * 8;
   return (
     <>
       {/* FOR LARGE SCREEN */}
-      <div className="lg:block sm:hidden">
+      <div className="lg:block md:hidden sm:hidden">
         <div className="rounded-tl-[24px] rounded-tr-[24px] rounded-bl-[24px] bg_sec pl-6 pt-4">
           {/* TOGGLE BUTTONS */}
           <div className="pr-6 pb-4 flex justify-between items-center">
@@ -203,22 +206,32 @@ const SellingFastProducts = () => {
         </div>
       </div>
       {/* FOR SMALL SCREEN */}
-      <div className="lg:hidden sm:block">
+      <div className="lg:hidden md:block sm:block">
         <div className="">
           {/* TITLE */}
-          <p className="text-[16px] font-extrabold mb-4">Selling Fast</p>
+          <p className="md:text-[22px] sm:text-[16px] font-extrabold mb-4">
+            Selling Fast
+          </p>
 
           {/* PRODUCTS */}
           <div className="overflow-x-auto">
             <div
+              // className={
+              //   "flex gap-2 sm:w-[" +
+              //   widthForSM +
+              //   "] " +
+              //   "md:w-[" +
+              //   widthForMD +
+              //   "] "
+              // }
               style={{
-                width: `${data?.length * 158 + (data?.length - 1) * 8}px`,
+                width: `${widthForSM}px`,
               }}
               className="flex gap-2"
             >
               {data?.map((item, index) => {
                 return (
-                  <div className="relative w-[158px]">
+                  <div className="relative md:w-[384px] sm:w-[158px]">
                     <Image
                       src={item?.product?.coverImage}
                       height={222}
@@ -238,17 +251,17 @@ const SellingFastProducts = () => {
                     >
                       {/* PROGRESS BAR */}
                       <progress
-                        className="progress progress-primary w-full h-[2px]"
+                        className="progress progress-primary w-full md:h-[5px] sm:h-[2px]"
                         value={item?.product?.sold ? item?.product?.sold : 0}
                         max={item?.product?.stock ? item?.product?.stock : 100}
                       />
 
                       {/* SELLING INFO */}
-                      <p className="text-[8px] ">
+                      <p className="md:text-[12px] sm:text-[8px] ">
                         {item?.product?.sold} {" of "} {item?.product?.stock}
                         {" sold"}
                       </p>
-                      <p className="prim_text_xs_reg mb-2">
+                      <p className="md:text-[14px] sm:text-[10px] mb-2">
                         {item?.product?.name}
                       </p>
                     </div>

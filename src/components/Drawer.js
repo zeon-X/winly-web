@@ -27,7 +27,7 @@ const Drawer = ({ children }) => {
       </div>
       <div className="drawer-side ">
         <label htmlFor="navbarToggle" className="drawer-overlay"></label>
-        <ul className="nav_menu bg_prim p-10 w-full bg-base-100">
+        <ul className="nav_menu bg_prim p-10 md:w-7/12 sm:w-full ">
           {/* <!-- Sidebar content here --> */}
           <li className="flex justify-between items-center">
             <Image
