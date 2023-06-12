@@ -21,7 +21,7 @@ const Drawer = ({ children }) => {
           <Nav />
         </div>
         {/* <!-- Page content here --> */}
-        <div className="w-full min-h-fit">{children}</div>
+        <div className="w-full min-h-fit ">{children}</div>
 
         <Footer />
       </div>

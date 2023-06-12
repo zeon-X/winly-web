@@ -6,6 +6,8 @@
 
 
 
+
+
 /* 
   Note: The styles for this gradient grid background is heavily inspired by the creator of this amazing site (https://dub.sh) – all credits go to them! 
 */
@@ -52,6 +54,18 @@ p,a{
   font-size: 16px;
 }
 
+.prim_text_xs_reg{
+  font-size: 10px;
+  /* color: white; */
+  font-family: Sora;
+  font-weight: 400;
+}
+.sec_text_xs_reg{
+  font-size: 10px;
+  /* color: white; */
+  font-family: Manrope;
+  font-weight: 400;
+}
 .prim_text_sm_reg{
   font-size: 12px;
   /* color: white; */
@@ -121,6 +135,20 @@ p,a{
 }
 .sec_text_lg{
   font-size: 16px;
+  /* color: white; */
+  font-family: Manrope;
+  font-weight: 600;
+}
+
+
+.prim_text_exlg{
+  font-size: 18px;
+  /* color: white; */
+  font-family: Sora;
+  font-weight: 600;
+}
+.sec_text_exlg{
+  font-size: 18px;
   /* color: white; */
   font-family: Manrope;
   font-weight: 600;
@@ -257,3 +285,9 @@ p,a{
   background-color: #424242;
   border-radius: 14px;
 }
+
+
+
+
+
+

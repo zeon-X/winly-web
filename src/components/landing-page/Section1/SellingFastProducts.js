@@ -9,6 +9,7 @@ import {
   LProduct1,
   LProduct2,
   LProduct3,
+  loadingAnimation,
 } from "../../../../public/assets/images";
 import Image from "next/image";
 
@@ -132,67 +133,133 @@ const SellingFastProducts = () => {
     }
   };
   return (
-    <div>
-      <div className="rounded-tl-[24px] rounded-tr-[24px] rounded-bl-[24px] bg_sec pl-6 pt-6">
-        {/* TOGGLE BUTTONS */}
-        <div className="pr-6 pb-6 flex justify-between items-center">
-          <p className="text-[24px] font-extrabold">Selling Fast</p>
+    <>
+      {/* FOR LARGE SCREEN */}
+      <div className="lg:block sm:hidden">
+        <div className="rounded-tl-[24px] rounded-tr-[24px] rounded-bl-[24px] bg_sec pl-6 pt-4">
+          {/* TOGGLE BUTTONS */}
+          <div className="pr-6 pb-4 flex justify-between items-center">
+            <p className="text-[24px] font-extrabold">Selling Fast</p>
 
-          <div className="flex gap-4">
-            <button onClick={handleLeftClick} className="white_btn_outline_md">
-              {LeftArrowWhite}
-            </button>
-            <button onClick={handleRightClick} className="white_btn_outline_md">
-              {RightArrowWhite}
-            </button>
+            <div className="flex gap-4">
+              <button
+                onClick={handleLeftClick}
+                className="white_btn_outline_md"
+              >
+                {LeftArrowWhite}
+              </button>
+              <button
+                onClick={handleRightClick}
+                className="white_btn_outline_md"
+              >
+                {RightArrowWhite}
+              </button>
+            </div>
           </div>
-        </div>
-        {/* PRODUCTS */}
-        <div className="grid grid-cols-3 gap-4">
-          {displayItems?.map((item, index) => {
-            let sellingProgress =
-              (item?.product?.sold / item?.product?.stock) * 100;
-            return (
-              <div className="relative">
-                <Image
-                  src={item?.product?.coverImage}
-                  height={344}
-                  width={243}
-                  alt={item?.product?.name}
-                  className={
-                    index !== 2
-                      ? "rounded-[24px] rounded-tr-[24px] opacity-0 transition-opacity duration-1000"
-                      : "rounded-tl-[24px]  opacity-0 transition-opacity duration-1000"
-                  }
-                  onLoadingComplete={(img) => img.classList.remove("opacity-0")}
-                />
-
-                <div
-                  style={{
-                    backgroundColor: "rgba(0,0,0,0.7)",
-                  }}
-                  className="absolute bottom-0 w-full min-h-[82px] p-4"
-                >
-                  {/* PROGRESS BAR */}
-                  <progress
-                    className="progress progress-primary w-full h-[6px]"
-                    value={sellingProgress}
-                    max="100"
+          {/* PRODUCTS */}
+          <div className="grid grid-cols-3 gap-4">
+            {displayItems?.map((item, index) => {
+              return (
+                <div className="relative">
+                  <Image
+                    src={item?.product?.coverImage}
+                    height={344}
+                    width={243}
+                    alt={item?.product?.name}
+                    className={
+                      index !== 2
+                        ? "rounded-[16px] rounded-tr-[16px] opacity-0 transition-opacity duration-1000"
+                        : "rounded-tl-[16px]  opacity-0 transition-opacity duration-1000"
+                    }
+                    onLoadingComplete={(img) =>
+                      img.classList.remove("opacity-0")
+                    }
                   />
 
-                  {/* SELLING INFO */}
-                  <p className="prim_text_sm mt-2">
-                    {item?.product?.sold} {" of "} {item?.product?.stock}
-                    {" sold"}
-                  </p>
-                  <p className="prim_text_lg">{item?.product?.name}</p>
+                  <div
+                    style={{
+                      backgroundColor: "rgba(0,0,0,0.7)",
+                    }}
+                    className="absolute bottom-0 w-full min-h-[82px] p-4"
+                  >
+                    {/* PROGRESS BAR */}
+                    <progress
+                      className="progress progress-primary w-full h-[6px]"
+                      value={item?.product?.sold ? item?.product?.sold : 0}
+                      max={item?.product?.stock ? item?.product?.stock : 100}
+                    />
+
+                    {/* SELLING INFO */}
+                    <p className="prim_text_sm mt-2">
+                      {item?.product?.sold} {" of "} {item?.product?.stock}
+                      {" sold"}
+                    </p>
+                    <p className="prim_text_lg">{item?.product?.name}</p>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </div>
-    </div>
+      {/* FOR SMALL SCREEN */}
+      <div className="lg:hidden sm:block">
+        <div className="">
+          {/* TITLE */}
+          <p className="text-[16px] font-extrabold mb-4">Selling Fast</p>
+
+          {/* PRODUCTS */}
+          <div className="overflow-x-auto">
+            <div
+              style={{
+                width: `${data?.length * 158 + (data?.length - 1) * 8}px`,
+              }}
+              className="flex gap-2"
+            >
+              {data?.map((item, index) => {
+                return (
+                  <div className="relative w-[158px]">
+                    <Image
+                      src={item?.product?.coverImage}
+                      height={222}
+                      width={158}
+                      alt={item?.product?.name}
+                      className="rounded-[12px] opacity-0 transition-opacity duration-1000"
+                      onLoadingComplete={(img) =>
+                        img.classList.remove("opacity-0")
+                      }
+                    />
+
+                    <div
+                      style={{
+                        backgroundColor: "rgba(0,0,0,0.7)",
+                      }}
+                      className="absolute bottom-0 rounded-bl-[12px] rounded-br-[12px] w-full min-h-[54px] px-2"
+                    >
+                      {/* PROGRESS BAR */}
+                      <progress
+                        className="progress progress-primary w-full h-[2px]"
+                        value={item?.product?.sold ? item?.product?.sold : 0}
+                        max={item?.product?.stock ? item?.product?.stock : 100}
+                      />
+
+                      {/* SELLING INFO */}
+                      <p className="text-[8px] ">
+                        {item?.product?.sold} {" of "} {item?.product?.stock}
+                        {" sold"}
+                      </p>
+                      <p className="prim_text_xs_reg mb-2">
+                        {item?.product?.name}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 

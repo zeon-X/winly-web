@@ -10,6 +10,9 @@ import productImage2 from "./offers/p2.png";
 import productImage3 from "./offers/p3.png";
 import productImage4 from "./offers/p4.png";
 
+//LOADING
+import loadingAnimation from "./loading/loading1.png";
+
 // LANDING PAGE IMAGES
 
 import LProduct1 from "./landingPage/section1/p1.png";
@@ -24,6 +27,7 @@ import LTicketPrize1 from "./landingPage/section1/t1.png";
 import LTicketPrizeProduct1 from "./landingPage/section1/t1p1.png";
 
 export {
+  loadingAnimation,
   dp,
   wcc,
   visa,

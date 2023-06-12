@@ -4,19 +4,19 @@ import WinnerPrizeDisplay from "@components/landing-page/Section1/WinnerPrizeDis
 
 const Home = () => {
   return (
-    <div className="p-6 w-full max-w-[1920px] mx-auto">
+    <div className="lg:p-6 sm:p-4  w-full max-w-[1920px] mx-auto">
       <div className="w-full rounded-[16px]">
-        {/* 1st Section */}
+        {/* SECTION 1 */}
         <section>
-          <div className="flex lg:flex-row sm:flex-col justify-between items-start gap-6">
+          <div className="flex lg:flex-row sm:flex-col justify-between items-start gap-4">
             {/* BIG POSTER PRIZE + PRODUCT */}
             <div className="lg:max-w-[1040px] sm:w-full">
               <FocusingPrizeWithProduct />
             </div>
             {/* BIG POSTER PRIZE + PRODUCT */}
-            <div className="lg:max-w-[783px] sm:w-full flex flex-col gap-6">
+            <div className="lg:max-w-[783px] sm:w-full flex flex-col gap-4">
               {/* WINNER PRIZE DISPLAY */}
-              <div>
+              <div className="">
                 <WinnerPrizeDisplay />
               </div>
               {/* PRODUCTS */}
@@ -26,6 +26,8 @@ const Home = () => {
             </div>
           </div>
         </section>
+
+        {/* SECTION 2 */}
       </div>
     </div>
   );

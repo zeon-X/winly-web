@@ -13,7 +13,7 @@ const Nav = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(1);
 
   return (
-    <div className="p-6">
+    <div className="lg:p-6 sm:px-4 sm:py-6">
       <div className=""></div>
 
       <div className="flex justify-between items-center lg:h-[81px] sm:h-[48px] rounded-[16px] bg-[#2D2D2D] w-full lg:px-6 sm:px-4 ">
