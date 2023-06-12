@@ -4,7 +4,7 @@ import WinnerPrizeDisplay from "@components/landing-page/Section1/WinnerPrizeDis
 
 const Home = () => {
   return (
-    <div className="lg:p-6 sm:p-4  w-full max-w-[1920px] mx-auto">
+    <div className="lg:px-6 lg:py-4 sm:p-4  w-full max-w-[1920px] mx-auto">
       <div className="w-full rounded-[16px]">
         {/* SECTION 1 */}
         <section>
