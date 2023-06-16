@@ -30,7 +30,9 @@ p,a{
   background-color: #1A1A1A;
 }
 .bg_sec{
-  background-color: #2D2D2D;
+  background-color: #2D2D2D;}
+.bg_sec_light{
+  background-color: #313131;
 }
 
 .bg-nutral{
@@ -141,6 +143,18 @@ p,a{
 }
 
 
+.prim_text_reg_exlg{
+  font-size: 18px;
+  /* color: white; */
+  font-family: Sora;
+  font-weight: 400;
+}
+.sec_text_reg_exlg{
+  font-size: 18px;
+  /* color: white; */
+  font-family: Manrope;
+  font-weight: 400;
+}
 .prim_text_exlg{
   font-size: 18px;
   /* color: white; */
@@ -154,6 +168,18 @@ p,a{
   font-weight: 600;
 }
 
+.prim_text_xl_reg{
+  font-size: 20px;
+  /* color: white; */
+  font-family: Sora;
+  font-weight: 400;
+}
+.sec_text_xl_reg{
+  font-size: 20px;
+  /* color: white; */
+  font-family: Manrope;
+  font-weight: 400;
+}
 .prim_text_xl{
   font-size: 20px;
   /* color: white; */

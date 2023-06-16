@@ -8,6 +8,7 @@ const Home = () => {
         {/* SECTION 1 */}
         <Section1 />
 
+        <div className="py-[51px]" />
         {/* SECTION 2 */}
         <Section2 />
       </div>
