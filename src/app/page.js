@@ -1,5 +1,6 @@
 import Section1 from "@components/landing-page/Section1/Section1";
 import Section2 from "@components/landing-page/Section2/Section2";
+import Section3 from "@components/landing-page/Section3/Section3";
 
 const Home = () => {
   return (
@@ -8,9 +9,12 @@ const Home = () => {
         {/* SECTION 1 */}
         <Section1 />
 
-        <div className="py-[51px]" />
+        <div className="lg:py-[51px] sm:py-[30px]" />
         {/* SECTION 2 */}
         <Section2 />
+
+        <div className="lg:py-[51px] sm:py-[30px]" />
+        <Section3 />
       </div>
     </div>
   );
