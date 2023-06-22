@@ -4,7 +4,7 @@ import WinnerPrizeDisplay from "@components/landing-page/Section1/WinnerPrizeDis
 
 const Section1 = () => {
   return (
-    <section>
+    <section className="max-w-[1920px] mx-auto lg:px-6 sm:p-4">
       <div
         // flex lg:flex-row sm:flex-col
         className="h-full grid lg:grid-cols-LS1 md:grid-cols-1 sm:grid-cols-1 justify-between items-start gap-4"

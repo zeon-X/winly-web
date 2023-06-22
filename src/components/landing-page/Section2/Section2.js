@@ -3,15 +3,15 @@ import ItemDisplay from "./ItemDisplay";
 
 const Section2 = () => {
   return (
-    <section>
+    <section className="max-w-[1920px] mx-auto lg:px-6 sm:p-4">
       <div className="max-w-[1407px] mx-auto">
         {/* HEADING */}
 
         <div className="grid lg:grid-cols-2 sm:grid-cols-1 justify-between items-center lg:gap-20 sm:gap-4">
-          <p className="lg:text-[48px] sm:text-[16px] font-bold">
+          <p className="lg:text-[48px] sm:text-[16px] font-bold  font-sora">
             Explore campaigns
           </p>
-          <p className="lg:text-[18px] sm:text-[12px]">
+          <p className="lg:text-[18px] sm:text-[12px]  font-sora">
             Explore this exclusive campaigns that will make your dream true by
             shopping with us. Happy Shopping
           </p>

@@ -18,11 +18,20 @@ const Nav = () => {
 
       <div className="flex justify-between items-center lg:h-[81px] sm:h-[48px] rounded-[16px] bg-[#2D2D2D] w-full lg:px-6 sm:px-4 ">
         <div className="flex lg:justify-center sm:justify-between lg:w-auto sm:w-full items-center lg:gap-10 sm:gap-4">
-          {/* LOGO */}
+          {/* LOGO lg:h-[43px] lg:w-[110px] sm:h-[23px] sm:w-[60px] mb-2 */}
           <Image
-            className="lg:h-[43px] lg:w-[110px] sm:h-[23px] sm:w-[60px] mb-2"
+            className="lg:block sm:hidden mb-2"
             src={logo}
-            alt="Picture of the lgoo"
+            alt="Winly logo"
+            height={43}
+            width={110}
+          />
+          <Image
+            className="lg:hidden sm:block mb-2"
+            src={logo}
+            alt="Winly logo"
+            height={23}
+            width={60}
           />
           {/* TOGGLE SM */}
           <div className="lg:hidden sm:flex md:flex ">

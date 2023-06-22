@@ -20,6 +20,8 @@
 
 body{
   background-color: #1A1A1A;
+  padding: 0;
+  margin: 0;
 }
 p,a{
   color: white;
@@ -308,6 +310,15 @@ p,a{
 
 .white_btn_outline_md{
   padding: 6px 10px;
+  background-color: #424242;
+  border-radius: 14px;
+}
+.white_btn_outline_lg{
+  height: 50px;
+  width: 57px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #424242;
   border-radius: 14px;
 }
