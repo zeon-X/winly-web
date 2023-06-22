@@ -1,16 +1,55 @@
+"use client";
+import React, { useState } from "react";
 import Image from "next/image";
-import React from "react";
 import logo from "../../../../public/assets/logo/Winly Logo 1.png";
 import {
   LeftArrowWhite,
   RightArrowWhite,
 } from "../../../../public/assets/Icons";
+import sec4flash from "../../../../public/assets/landingPage/section4/g10.png";
+import Winniers from "./Winniers";
 
 const Section4 = () => {
+  const [visibleData, setVisibleData] = useState([
+    {
+      name: "Rinku Sing",
+      winningOn: "Lancer V86X",
+
+      announce: "11:55 am 11 may, 2023 ",
+      ticketNo: "836846577778 ",
+      prizeImage: "https://i.ibb.co/n3chgg2/Rectangle-51.png",
+    },
+    {
+      name: "Rinku Sing",
+      winningOn: "Lancer V86X",
+
+      announce: "11:55 am 11 may, 2023 ",
+      ticketNo: "836846577778 ",
+      prizeImage: "https://i.ibb.co/L0xTMTj/cpphoto5.jpg",
+    },
+  ]);
+  const [data, setData] = useState([
+    {
+      name: "Rinku Sing",
+      winningOn: "Lancer V86X",
+
+      announce: "11:55 am 11 may, 2023 ",
+      ticketNo: "836846577778 ",
+      prizeImage: "https://i.ibb.co/n3chgg2/Rectangle-51.png",
+    },
+    {
+      name: "Rinku Sing",
+      winningOn: "Lancer V86X",
+
+      announce: "11:55 am 11 may, 2023 ",
+      ticketNo: "836846577778 ",
+      prizeImage: "https://i.ibb.co/L0xTMTj/cpphoto5.jpg",
+    },
+  ]);
   return (
     <section className="max-w-[1920px] mx-auto lg:px-6 sm:p-4">
-      <div className="max-w-[1408px] mx-auto relative bg_sec_light rounded-[37px] p-28 flex lg:flex-row sm:flex-col gap-4">
-        <div className="lg:w-5/12 sm:w-full">
+      <div className="max-w-[1408px] mx-auto relative bg_sec_light rounded-[37px] pl-28 py-28 flex lg:flex-row sm:flex-col gap-8">
+        <div className="lg:w-4/12 sm:w-full h-full">
           <div className="flex gap-1 justify-start items-start">
             <Image
               className="lg:block sm:hidden mb-2"
@@ -48,11 +87,18 @@ const Section4 = () => {
             >
               {RightArrowWhite}
             </button>
-
-            <Image src={""} height={370} width={380} alt="" />
           </div>
+          <Image
+            src={sec4flash}
+            height={370}
+            width={380}
+            alt=""
+            className="absolute bottom-0 "
+          />
         </div>
-        <div className="lg:w-7/12 sm:w-full"></div>
+        <div className="lg:w-8/12 sm:w-full h-full overflow-x-hidden relative">
+          <Winniers data={visibleData} />
+        </div>
       </div>
     </section>
   );

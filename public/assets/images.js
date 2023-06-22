@@ -25,9 +25,11 @@ import LWinnerPrize1 from "./landingPage/section1/w1.png";
 import LTicketPrize1 from "./landingPage/section1/t1.png";
 
 import LTicketPrizeProduct1 from "./landingPage/section1/t1p1.png";
+import sec4flash from "./landingPage/section4/g10.png";
 
 export {
   loadingAnimation,
+  sec4flash,
   dp,
   wcc,
   visa,
