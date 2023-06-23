@@ -10,7 +10,7 @@ const Section3 = () => {
         {/* HEADING */}
 
         <div className="grid lg:grid-cols-2 sm:grid-cols-1 justify-between items-center lg:gap-16 sm:gap-4">
-          <div className="flex gap-1 justify-start items-start">
+          <div className="flex gap-1 justify-start  lg:items-start sm:items-center">
             <Image
               className="lg:block sm:hidden mb-2"
               src={logo}

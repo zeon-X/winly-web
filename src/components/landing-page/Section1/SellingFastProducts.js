@@ -112,7 +112,7 @@ const SellingFastProducts = () => {
 
     setDisplayItems(temItemData);
 
-    console.log(temItemData);
+    // console.log(temItemData);
   }, [data, startFrom, endAt]);
 
   const handleRightClick = () => {

@@ -10,24 +10,7 @@ import sec4flash from "../../../../public/assets/landingPage/section4/g10.png";
 import Winniers from "./Winniers";
 
 const Section4 = () => {
-  const [visibleData, setVisibleData] = useState([
-    {
-      name: "Rinku Sing",
-      winningOn: "Lancer V86X",
-
-      announce: "11:55 am 11 may, 2023 ",
-      ticketNo: "836846577778 ",
-      prizeImage: "https://i.ibb.co/n3chgg2/Rectangle-51.png",
-    },
-    {
-      name: "Rinku Sing",
-      winningOn: "Lancer V86X",
-
-      announce: "11:55 am 11 may, 2023 ",
-      ticketNo: "836846577778 ",
-      prizeImage: "https://i.ibb.co/L0xTMTj/cpphoto5.jpg",
-    },
-  ]);
+  const [startAt, setStartAt] = useState(0);
   const [data, setData] = useState([
     {
       name: "Rinku Sing",
@@ -45,12 +28,33 @@ const Section4 = () => {
       ticketNo: "836846577778 ",
       prizeImage: "https://i.ibb.co/L0xTMTj/cpphoto5.jpg",
     },
+    {
+      name: "Rinku Sing",
+      winningOn: "Lancer V86X",
+
+      announce: "11:55 am 11 may, 2023 ",
+      ticketNo: "836846577778 ",
+      prizeImage:
+        "https://i.ibb.co/5B7JgGg/2023-BMW-i7-1671623434776-1671623440678-1671623440678.webp",
+    },
   ]);
+
+  const handleLeftClick = () => {
+    if (startAt > 0) {
+      setStartAt((value) => value - 1);
+    }
+  };
+  const handleRightClick = () => {
+    if (startAt < data.length) {
+      setStartAt((value) => value + 1);
+    }
+  };
+
   return (
-    <section className="max-w-[1920px] mx-auto lg:px-6 sm:p-4">
-      <div className="max-w-[1408px] mx-auto relative bg_sec_light rounded-[37px] pl-28 py-28 flex lg:flex-row sm:flex-col gap-8">
+    <section className="max-w-[1920px] mx-auto lg:px-6 ">
+      <div className="max-w-[1408px] mx-auto sm:min-h-[632px] relative bg_sec_light lg:rounded-[37px] sm:rounded-none lg:p-0 lg:pl-28 lg:py-28 sm:p-4 flex lg:justify-between sm:justify-center lg:flex-row sm:flex-col lg:gap-8 sm:gap-2">
         <div className="lg:w-4/12 sm:w-full h-full">
-          <div className="flex gap-1 justify-start items-start">
+          <div className="flex gap-1 justify-start lg:items-start sm:items-center">
             <Image
               className="lg:block sm:hidden mb-2"
               src={logo}
@@ -74,15 +78,12 @@ const Section4 = () => {
             uploaded during the draw sessions.
           </p>
 
-          <div className="flex gap-4">
-            <button
-              // onClick={() => handleOnClickChangeSelectedItem(1)}
-              className="white_btn_outline_lg "
-            >
+          <div className="gap-4 lg:flex sm:hidden">
+            <button onClick={handleLeftClick} className="white_btn_outline_lg ">
               {LeftArrowWhite}
             </button>
             <button
-              // onClick={() => handleOnClickChangeSelectedItem(-1)}
+              onClick={handleRightClick}
               className="white_btn_outline_lg "
             >
               {RightArrowWhite}
@@ -96,8 +97,8 @@ const Section4 = () => {
             className="absolute bottom-0 "
           />
         </div>
-        <div className="lg:w-8/12 sm:w-full h-full overflow-x-hidden relative">
-          <Winniers data={visibleData} />
+        <div className="lg:w-7/12 sm:w-full h-full lg:overflow-x-hidden sm:overflow-x-auto relative">
+          <Winniers data={data} startAt={startAt} />
         </div>
       </div>
     </section>
