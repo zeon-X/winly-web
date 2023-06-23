@@ -31,7 +31,7 @@ const Winniers = ({ data, startAt }) => {
     }
 
     setVisibleData(temData);
-  }, [data, startAt, screen.width]);
+  }, [data, startAt]);
 
   return (
     <div
