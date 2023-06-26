@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import logo from "../../../../public/assets/logo/Winly Logo 1.png";
+import logo from "../../../../public/assets/logo/Winly-Logo-1.png";
 import {
   LeftArrowWhite,
   RightArrowWhite,

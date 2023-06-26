@@ -1,6 +1,6 @@
 import React from "react";
 import SellingFastProducts from "./SellingFastProducts";
-import logo from "../../../../public/assets/logo/Winly Logo 1.png";
+import logo from "../../../../public/assets/logo/Winly-Logo-1.png";
 import Image from "next/image";
 
 const Section3 = () => {

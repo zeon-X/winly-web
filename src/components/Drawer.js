@@ -1,7 +1,7 @@
 "use client";
 import Nav from "./Nav";
 import { closeBtn } from "../../public/assets/Icons";
-import logo from "../../public/assets/logo/Winly Logo 1.png";
+import logo from "../../public/assets/logo/Winly-Logo-1.png";
 import Image from "next/image";
 import PrimaryLinks from "./navbar/PrimaryLinks";
 import CurrencyDropdown from "./navbar/CurrencyDropdown";

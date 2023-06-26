@@ -48,14 +48,14 @@ const Winniers = ({ data, startAt }) => {
               height={273}
               width={453}
               alt=""
-              className="w-full lg:rounded-tl-3xl lg:rounded-tr-3xl sm:rounded-tl-[17px] sm:rounded-tr-[17px] lg:block sm:hidden"
+              className="w-full rounded-tl-3xl rounded-tr-3xl  lg:block sm:hidden"
             />
             <Image
               src={winner?.prizeImage}
               height={193}
               width={320}
               alt=""
-              className="w-full rounded-tl-3xl rounded-tr-3xl lg:hidden sm:block"
+              className="w-full rounded-tl-[17px] rounded-tr-[17px] lg:hidden sm:block"
             />
             <div className="px-6 py-4 grid grid-cols-1 lg:gap-4 sm:gap-2">
               <p className="text-primary-red lg:text-[24px] sm:text-[16px] font-sora">

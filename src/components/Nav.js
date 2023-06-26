@@ -1,7 +1,7 @@
 "use client";
 import "@styles/globals.css";
 import Image from "next/image";
-import logo from "../../public/assets/logo/Winly Logo 1.png";
+import logo from "../../public/assets/logo/Winly-Logo-1.png";
 import Link from "next/link";
 import { navToggleSvg } from "../../public/assets/Icons";
 import { useState } from "react";

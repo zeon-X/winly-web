@@ -1,6 +1,6 @@
 import "@styles/globals.css";
 import Image from "next/image";
-import logo from "../../public/assets/logo/Winly Logo 1.png";
+import logo from "../../public/assets/logo/Winly-Logo-1.png";
 import Link from "next/link";
 import { fb, insta, li, tw } from "../../public/assets/socialSvg";
 

@@ -6,7 +6,7 @@ import Section4 from "@components/landing-page/Section4/Section4";
 const Home = () => {
   //className="max-w-[1920px] mx-auto"
   return (
-    <div className=" lg:py-4 md:py-0   w-full ">
+    <div className=" lg:py-0 md:py-0   w-full ">
       <div className="w-full rounded-[16px] ">
         {/* SECTION 1 */}
         <Section1 />

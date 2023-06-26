@@ -1,0 +1,63 @@
+"use client";
+import PasswordInput from "./PasswordInput";
+const formDivCss =
+  "mb-4 form-control bg-transparent border-4 px-6 py-2 rounded-[16px] w-full ";
+const formInputCss =
+  "p-1 focus:outline-none bg-transparent sec_text_xl text-white w-full";
+const formInputWarningCss = "sec_text_sm text-red-500";
+const formInputLabelCss = "prim_text_sm_reg text-white";
+
+const Login = () => {
+  return (
+    <div>
+      <form>
+        {/* <input
+          type="text"
+          placeholder="Email"
+          className="input input-primary bg-transparent  border-[3px] border-[#1A1A1A] text-white rounded-2xl py-9 font-sora font-semibold w-full"
+        />
+        <input
+          type="text"
+          placeholder="Password"
+          className="input input-primary bg-transparent  border-[3px] border-[#1A1A1A] text-white rounded-2xl py-9 font-sora font-semibold w-full"
+        /> */}
+
+        <div className={formDivCss}>
+          <label className="label">
+            <span className={formInputLabelCss}>Email</span>
+          </label>
+          <input
+            type="email"
+            placeholder="Your Email"
+            name="email"
+            className={formInputCss}
+          />
+          <label className="label">
+            <span className={formInputWarningCss}></span>
+          </label>
+        </div>
+
+        <PasswordInput
+          name={"password"}
+          placeholder={"Your Password"}
+          labelText={"Password"}
+          errorText={""}
+        />
+
+        <div className="font-sora flex justify-between items-center mt-4">
+          <a href="" className="text-primary font-semibold">
+            Forget Password?
+          </a>
+          <button
+            type="submit"
+            className="text-white rounded-2xl bg_prim py-6 w-4/12 "
+          >
+            Login
+          </button>
+        </div>
+      </form>
+    </div>
+  );
+};
+
+export default Login;
