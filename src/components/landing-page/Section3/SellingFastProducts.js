@@ -162,7 +162,7 @@ const SellingFastProducts = () => {
           <div className="max-w-[1400px] mx-auto w-full grid grid-cols-5 justify-center items-center gap-4">
             {displayItems?.map((item, index) => {
               return (
-                <div className="relative mx-auto">
+                <div key={index} className="relative mx-auto">
                   <Image
                     src={item?.product?.coverImage}
                     height={344}
@@ -225,7 +225,10 @@ const SellingFastProducts = () => {
             >
               {data?.map((item, index) => {
                 return (
-                  <div className="relative md:w-[384px] sm:w-[158px]">
+                  <div
+                    key={index}
+                    className="relative md:w-[384px] sm:w-[158px]"
+                  >
                     <Image
                       src={item?.product?.coverImage}
                       height={222}

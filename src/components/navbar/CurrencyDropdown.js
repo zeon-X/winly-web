@@ -36,9 +36,9 @@ const CurrencyDropdown = () => {
         tabIndex={0}
         className="dropdown-content menu p-2 shadow bg_sec rounded-box mt-2"
       >
-        {currencyData.map((x) => {
+        {currencyData.map((x, index) => {
           return (
-            <li>
+            <li key={index}>
               <div className="flex justify-center items-center gap-2">
                 <Image
                   src={x?.icon}

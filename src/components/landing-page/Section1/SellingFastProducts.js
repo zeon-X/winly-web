@@ -163,7 +163,7 @@ const SellingFastProducts = () => {
           <div className="grid grid-cols-3 gap-4">
             {displayItems?.map((item, index) => {
               return (
-                <div className="relative">
+                <div key={index} className="relative">
                   <Image
                     src={item?.product?.coverImage}
                     height={344}
@@ -231,7 +231,10 @@ const SellingFastProducts = () => {
             >
               {data?.map((item, index) => {
                 return (
-                  <div className="relative md:w-[384px] sm:w-[158px]">
+                  <div
+                    key={index}
+                    className="relative md:w-[384px] sm:w-[158px]"
+                  >
                     <Image
                       src={item?.product?.coverImage}
                       height={222}

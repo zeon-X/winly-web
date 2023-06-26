@@ -63,7 +63,10 @@ const ItemDisplay = () => {
       <div className="grid lg:grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-6">
         {data?.map((item, index) => {
           return (
-            <div className="flex lg:flex-row sm:flex-col justify-between items-center lg:gap-6 sm:gap-3 p-4  lg:rounded-[32px] sm:rounded-[12px] bg_sec_light lg:min-h-[390px]">
+            <div
+              key={index}
+              className="flex lg:flex-row sm:flex-col justify-between items-center lg:gap-6 sm:gap-3 p-4  lg:rounded-[32px] sm:rounded-[12px] bg_sec_light lg:min-h-[390px]"
+            >
               {/* TICKET PRIZE PIC */}
 
               <Image

@@ -30,9 +30,10 @@ const WalletPage = () => {
 
         <p className="mt-10 mb-4 prim_text_lg">Select Top-up Method</p>
         <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-6">
-          {topUpMethod?.map((card) => {
+          {topUpMethod?.map((card, index) => {
             return (
               <div
+                key={index}
                 style={{ backgroundColor: "white" }}
                 className="rounded-xl p-4 min-h-[136px]  flex flex-col justify-center items-center"
               >

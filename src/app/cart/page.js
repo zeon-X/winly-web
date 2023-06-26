@@ -27,9 +27,12 @@ const CartPage = () => {
           <p className="prim_text_2xl mb-8">Cart</p>
           {/* PRODUCT */}
           <div className="lg:p-10 sm:p-4 shadow-lg rounded-[24px] grid grid-cols-1 gap-8 bg_sec max-w-[936px]">
-            {cartData?.map((product) => {
+            {cartData?.map((product, index) => {
               return (
-                <div className="flex lg:flex-row md:flex-row sm:flex-col justify-between items-center gap-6">
+                <div
+                  key={index}
+                  className="flex lg:flex-row md:flex-row sm:flex-col justify-between items-center gap-6"
+                >
                   {/* INFO */}
                   <div className="flex gap-10 justify-start items-center">
                     <Image

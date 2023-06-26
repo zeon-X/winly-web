@@ -146,7 +146,7 @@ const FocusingPrizeWithProduct = () => {
         >
           {data?.map((x, index) => {
             return (
-              <div className="w-[340px]">
+              <div key={index} className="w-[340px]">
                 <div className="relative">
                   <Image
                     src={x?.prize?.coverImage}

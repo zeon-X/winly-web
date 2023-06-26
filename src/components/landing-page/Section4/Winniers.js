@@ -42,7 +42,10 @@ const Winniers = ({ data, startAt }) => {
     >
       {visibleData?.map((winner, index) => {
         return (
-          <div className="shadow-lg bg_prim lg:rounded-3xl sm:rounded-[17px] lg:h-[545px] lg:w-[453px] sm:h-auto sm:w-[320px]">
+          <div
+            key={index}
+            className="shadow-lg bg_prim lg:rounded-3xl sm:rounded-[17px] lg:h-[545px] lg:w-[453px] sm:h-auto sm:w-[320px]"
+          >
             <Image
               src={winner?.prizeImage}
               height={273}
