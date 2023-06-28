@@ -5,7 +5,7 @@ import { cartSvg } from "../../../public/assets/Icons";
 const CartComponent = () => {
   const [cartItem, setCartItem] = useState([]);
   return (
-    <a href="/cart" className="prim_text_lg_reg flex  items-center gap-2">
+    <div className="prim_text_lg_reg flex  items-center gap-2">
       {cartSvg}
       <span>
         Cart{" "}
@@ -19,7 +19,7 @@ const CartComponent = () => {
           {cartItem?.length}
         </span>
       </span>
-    </a>
+    </div>
   );
 };
 
