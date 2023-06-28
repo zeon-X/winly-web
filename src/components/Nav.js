@@ -67,24 +67,39 @@ const Nav = () => {
           <ul className="flex justify-center items-center gap-6">
             <li>{<CurrencyDropdown />}</li>
 
+
             {!auth.authenticate ? (
               <>
                 <li>
-                  <a href="/login" className="prim_text_lg_reg">
-                    Login
-                  </a>
+                  <Link href="/login">
+                    <div className="prim_text_lg_reg">Login</div>
+                  </Link>
                 </li>
                 <li>
-                  <a href="/register" className="btn_outline prim_text_lg_reg">
-                    Register
-                  </a>
+                  <Link href="/register">
+                    <div className="btn_outline prim_text_lg_reg">Register</div>
+                  </Link>
                 </li>
               </>
             ) : (
+
               <>
-                <li className="">{<CartComponent />}</li>
-                <li className="">{<AccountBalance />}</li>
+                <li className="">
+                {
+                  <Link href="/cart">
+                   <CartComponent />
+                  </Link>
+                }
+                </li>
+                <li className="">
+                  {
+                    <Link href="/profile">
+                      <AccountBalance />
+                    </Link>
+                  }
+                 </li>
               </>
+
             )}
           </ul>
         </div>
