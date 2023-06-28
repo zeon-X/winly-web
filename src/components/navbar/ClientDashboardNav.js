@@ -13,8 +13,11 @@ import {
   settiing,
   wallet,
 } from "../../../public/assets/Icons";
+import { signout } from "@app/redux/actions";
+import { useDispatch } from "react-redux";
 
 const ClientDashboardNav = () => {
+  const dispatch = useDispatch();
   const [navData, setNavData] = useState([
     {
       title: "Personal Details",
@@ -52,32 +55,26 @@ const ClientDashboardNav = () => {
       icon: notification,
     },
   ]);
-  const [userData, setUserData] = useState({
-    firstname: "Shefat",
-    lastname: "Zeon",
-    email: "mdshefatzeon@gmail.com",
-    dob: "27/01/2000",
-    cc: "+880",
-    phone: "1402199906",
-    gender: 1,
-    nationality: "Bangladesh",
-    country: "United Arab Emirats",
-    Image: dp,
-  });
+
+  const userData = JSON.parse(localStorage.getItem("user"));
+
+  const profileImg =
+    userData.img.url === null
+      ? "https://winly-storage.s3.me-central-1.amazonaws.com/profileicon.jpeg"
+      : userData.img.url;
+
   return (
     <div className="w-full flex flex-col gap-6">
       {/* PROFILE INFO */}
       <div className="h-[246px] bg_sec rounded-[24px] lg:flex sm:hidden flex-col justify-center items-center">
         <Image
-          src={userData.Image}
+          src={profileImg}
           height={112}
           width={112}
           className="rounded-full"
-          alt={userData.firstname + "profile picture"}
+          alt={userData.firstName + "profile picture"}
         />
-        <p className="prim_text_lg mt-[14px]">
-          {userData?.firstname} {userData?.lastname}
-        </p>
+        <p className="prim_text_lg mt-[14px]">{userData?.fullName}</p>
         <p className="sec_text_lg">{userData?.email}</p>
       </div>
       {/* PROFILE NEVIGATION */}
@@ -93,7 +90,7 @@ const ClientDashboardNav = () => {
           );
         })}
 
-        <div className="flex gap-3 p-4">
+        <div className="flex gap-3 p-4" onClick={() => dispatch(signout())}>
           {logout} <p className="prim_text_lg_reg">Logout</p>
         </div>
       </div>

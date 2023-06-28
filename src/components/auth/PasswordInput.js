@@ -9,7 +9,14 @@ const formInputCss =
 const formInputWarningCss = "sec_text_sm text-red-500";
 const formInputLabelCss = "prim_text_sm_reg text-white";
 
-const PasswordInput = ({ name, placeholder, value, labelText, errorText }) => {
+const PasswordInput = ({
+  name,
+  placeholder,
+  value,
+  labelText,
+  errorText,
+  onChange,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className={formDivCss}>
@@ -30,6 +37,7 @@ const PasswordInput = ({ name, placeholder, value, labelText, errorText }) => {
         name={name}
         value={value}
         className={formInputCss}
+        onChange={onChange}
       />
       <label className="label">
         <span className={formInputWarningCss}>{errorText}</span>

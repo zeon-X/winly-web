@@ -4,13 +4,23 @@ import Image from "next/image";
 import logo from "../../public/assets/logo/Winly-Logo-1.png";
 import Link from "next/link";
 import { navToggleSvg } from "../../public/assets/Icons";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CartComponent from "./navbar/CartComponent";
 import CurrencyDropdown from "./navbar/CurrencyDropdown";
 import AccountBalance from "./navbar/AccountBalance";
+import { useDispatch, useSelector } from "react-redux";
+import { getCartItems } from "@app/redux/actions";
 
 const Nav = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(1);
+  const auth = useSelector((state) => state.auth);
+
+  console.log(auth);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCartItems());
+  }, []);
 
   return (
     <div className="lg:p-6 sm:px-4 sm:py-6">
@@ -56,15 +66,9 @@ const Nav = () => {
         <div className="lg:flex md:hidden sm:hidden justify-center items-center ">
           <ul className="flex justify-center items-center gap-6">
             <li>{<CurrencyDropdown />}</li>
-            <li className="">
-              {
-                <Link href="/cart">
-                  <CartComponent />
-                </Link>
-              }
-            </li>
 
-            {!isLoggedIn ? (
+
+            {!auth.authenticate ? (
               <>
                 <li>
                   <Link href="/login">
@@ -78,13 +82,24 @@ const Nav = () => {
                 </li>
               </>
             ) : (
-              <li className="">
+
+              <>
+                <li className="">
                 {
-                  <Link href="/profile">
-                    <AccountBalance />
+                  <Link href="/cart">
+                   <CartComponent />
                   </Link>
                 }
-              </li>
+                </li>
+                <li className="">
+                  {
+                    <Link href="/profile">
+                      <AccountBalance />
+                    </Link>
+                  }
+                 </li>
+              </>
+
             )}
           </ul>
         </div>
