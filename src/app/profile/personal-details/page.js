@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 
 const formDivCss =
   "form-control bg-info px-6 py-2 rounded-[16px] w-full max-width-className";
@@ -8,6 +10,16 @@ const formInputWarningCss = "sec_text_sm text-red-500";
 const formInputLabelCss = "prim_text_sm_reg text-white";
 
 const PersoalDetails = () => {
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  const [firstName, setFirstName] = useState(user.firstName);
+  const [lastName, setLastName] = useState(user.lastName);
+  const [email, setEmail] = useState(user.email);
+  const [gender, setGender] = useState(user.gender);
+  const [country, setCountry] = useState(user.country);
+  const [dob, setDob] = useState(user.dob);
+  const [phone, setPhone] = useState(user.phone);
+
   return (
     <div>
       <div>
@@ -23,6 +35,7 @@ const PersoalDetails = () => {
               placeholder="First Name"
               name="firstName"
               className={formInputCss}
+              value={firstName}
             />
             <label className="label">
               <span className={formInputWarningCss}></span>
@@ -37,25 +50,13 @@ const PersoalDetails = () => {
               placeholder="Last Name"
               name="lastName"
               className={formInputCss}
+              value={lastName}
             />
             <label className="label">
               <span className={formInputWarningCss}></span>
             </label>
           </div>
-          <div className={formDivCss}>
-            <label className="label">
-              <span className={formInputLabelCss}>Email</span>
-            </label>
-            <input
-              type="email"
-              placeholder="Your Email"
-              name="email"
-              className={formInputCss}
-            />
-            <label className="label">
-              <span className={formInputWarningCss}></span>
-            </label>
-          </div>
+
           <div className={formDivCss}>
             <label className="label">
               <span className={formInputLabelCss}>Birth of Date</span>
@@ -65,6 +66,8 @@ const PersoalDetails = () => {
               placeholder="DD/MM/YYYY"
               className={formInputCss}
               name="dob"
+              value={dob}
+              disabled
             />
             <label className="label">
               <span className={formInputWarningCss}></span>
@@ -93,6 +96,7 @@ const PersoalDetails = () => {
                 type="text"
                 placeholder="********"
                 className={formInputCss}
+                value={phone}
               />
               <label className="label">
                 <span className={formInputWarningCss}></span>
@@ -108,25 +112,14 @@ const PersoalDetails = () => {
               placeholder="Select Gender"
               className={formInputCss}
               name="gender"
+              value={gender}
+              disabled
             />
             <label className="label">
               <span className={formInputWarningCss}></span>
             </label>
           </div>
-          <div className={formDivCss}>
-            <label className="label">
-              <span className={formInputLabelCss}>Nationality</span>
-            </label>
-            <input
-              type="text"
-              placeholder="Your Nationality"
-              className={formInputCss}
-              name="nationality"
-            />
-            <label className="label">
-              <span className={formInputWarningCss}></span>
-            </label>
-          </div>
+
           <div className={formDivCss}>
             <label className="label">
               <span className={formInputLabelCss}>Country</span>
@@ -136,6 +129,7 @@ const PersoalDetails = () => {
               placeholder="Your Country"
               className={formInputCss}
               name="country"
+              value={country}
             />
             <label className="label">
               <span className={formInputWarningCss}></span>

@@ -1,4 +1,9 @@
 "use client";
+import { login } from "@app/redux/actions";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useNavigation } from "react-router-dom";
 import PasswordInput from "./PasswordInput";
 const formDivCss =
   "mb-4 form-control bg-transparent border-4 px-6 py-2 rounded-[16px] w-full ";
@@ -8,9 +13,25 @@ const formInputWarningCss = "sec_text_sm text-red-500";
 const formInputLabelCss = "prim_text_sm_reg text-white";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const dispatch = useDispatch();
+
+  const handleLogin = (e) => {
+    const user = {
+      email,
+      password,
+    };
+    dispatch(login(user));
+    e.preventDefault();
+  };
+
+  const auth = useSelector((state) => state.auth);
+
   return (
     <div>
-      <form>
+      <form onSubmit={handleLogin}>
         {/* <input
           type="text"
           placeholder="Email"
@@ -31,6 +52,8 @@ const Login = () => {
             placeholder="Your Email"
             name="email"
             className={formInputCss}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <label className="label">
             <span className={formInputWarningCss}></span>
@@ -42,6 +65,8 @@ const Login = () => {
           placeholder={"Your Password"}
           labelText={"Password"}
           errorText={""}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
 
         <div className="font-sora flex justify-between items-center mt-4">

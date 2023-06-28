@@ -8,10 +8,21 @@ import CurrencyDropdown from "./navbar/CurrencyDropdown";
 import CartComponent from "./navbar/CartComponent";
 import ClientDashboardNav from "./navbar/ClientDashboardNav";
 import Footer from "./Footer";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { isUserLoggedIn } from "@app/redux/actions";
 
 const Drawer = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(0);
+  const auth = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (!auth.authenticate) {
+      dispatch(isUserLoggedIn());
+    }
+  }, []);
+
   return (
     <div className="drawer drawer-end">
       <input id="navbarToggle" type="checkbox" className="drawer-toggle" />

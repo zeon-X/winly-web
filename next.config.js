@@ -12,6 +12,11 @@ const nextConfig = {
         hostname: "https://www.pexels.com/",
         // ...
       },
+      {
+        protocol: "https",
+        hostname: "winly-storage.s3.me-central-1.amazonaws.com",
+        // ...
+      },
     ],
   },
 };
