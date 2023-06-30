@@ -50,7 +50,7 @@ export const addToCart = (item, qty) => {
         });
       }
     } catch (error) {
-      const { data } = error.response;
+      const { data } = error?.response;
       dispatch({
         type: cartConstants.ADD_TO_CART_FAILURE,
         payload: data,

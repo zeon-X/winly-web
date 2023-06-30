@@ -3,7 +3,7 @@ import Login from "@components/auth/Login";
 import Registration from "@components/auth/Registration";
 import React, { useState } from "react";
 
-const page = () => {
+const LoginRegister = () => {
   const [isLogin, setIsLogin] = useState(true);
   return (
     <section className="max-w-[1920px] mx-auto lg:px-6 sm:p-4">
@@ -42,4 +42,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default LoginRegister;

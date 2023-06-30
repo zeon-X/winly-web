@@ -14,7 +14,7 @@ export const getTicket = () => {
         });
       }
     } catch (error) {
-      const { data } = error.response;
+      const { data } = error?.response;
       dispatch({
         type: ticketConst.TICKET_FAILURE,
         payload: data,
