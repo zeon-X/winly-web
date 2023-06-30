@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { productImage1, productImage2 } from "../../../public/assets/images";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, getCartItems } from "@app/redux/actions";
+import { addToCart, getCartItems, orderPlace } from "@app/redux/actions";
 
 const CartPage = () => {
   const dispatch = useDispatch();
@@ -35,6 +35,23 @@ const CartPage = () => {
         return totalPrice + price * qty;
       }, 0)
     : 0;
+
+  const handleOrder = (cart) => {
+    const order = {
+      orderItems: cart.map((item) => {
+        return {
+          product_id: item.product._id,
+          price: item.price,
+          qty: item.qty,
+          ticketQty: item.product.ticketQty,
+          campaign_id: item.product.campaign.campaign_id,
+        };
+      }),
+      orderTotal: totalPrice,
+      orderID: Math.floor(100000 + Math.random() * 900000),
+    };
+    dispatch(orderPlace(order));
+  };
 
   return (
     <div>
@@ -139,9 +156,18 @@ const CartPage = () => {
                 <span>$70</span>
               </p>
             </div>
+            <div></div>
           </div>
           {/* PAYMENT METHOD  */}
-          <div></div>
+          <div style={{ width: "300px", marginTop: 20, marginLeft: 100 }}>
+            <button
+              onClick={() => handleOrder(cart.cartItems)}
+              type=""
+              className="flex justify-center items-center bg-[#202020] px-4 py-2 rounded-[14px] text-[18px] font-semibold text-white sm:hidden lg:block"
+            >
+              Place Order
+            </button>
+          </div>
         </div>
       </div>
     </div>
