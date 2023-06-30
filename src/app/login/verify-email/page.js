@@ -22,7 +22,7 @@ const LoginRegister = () => {
           </label>
           <input
             type="text"
-            placeholder="XX XX XX XX"
+            placeholder="XX XX XX"
             name="vc"
             className={formInputCss}
             value={vc}
@@ -39,6 +39,13 @@ const LoginRegister = () => {
         >
           Verify Email
         </button>
+
+        <div className="font-sora text-white font-medium flex justify-start items-center mt-8">
+          <span>Didn't recieve verification code?</span>
+          <a href="" className="text-primary">
+            Resend Verification Code
+          </a>
+        </div>
       </div>
     </section>
   );

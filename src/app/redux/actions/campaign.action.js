@@ -1,3 +1,4 @@
+"use client";
 import axiosInstance from "../helpers/axios";
 import { campaignConst } from "./constants";
 

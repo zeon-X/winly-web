@@ -1,3 +1,4 @@
+"use client";
 import { ticketConst } from "../actions/constants";
 
 const initState = {

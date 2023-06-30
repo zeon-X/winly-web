@@ -1,3 +1,4 @@
+"use client";
 import { cartConstants } from "../actions/constants";
 
 const initState = {

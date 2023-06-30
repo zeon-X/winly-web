@@ -1,3 +1,4 @@
+"use client";
 import axiosInstance from "../helpers/axios";
 import { orderConstant } from "./constants";
 import Swal from "sweetalert2";
