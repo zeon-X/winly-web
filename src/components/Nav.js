@@ -4,7 +4,7 @@ import Image from "next/image";
 import logo from "../../public/assets/logo/Winly-Logo-1.png";
 import Link from "next/link";
 import { navToggleSvg } from "../../public/assets/Icons";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import CartComponent from "./navbar/CartComponent";
 import CurrencyDropdown from "./navbar/CurrencyDropdown";
 import AccountBalance from "./navbar/AccountBalance";

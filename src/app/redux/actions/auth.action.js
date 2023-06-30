@@ -1,12 +1,12 @@
 "use client";
 
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 import axiosInstance from "../helpers/axios";
 import { authConstant } from "./constants";
 import Swal from "sweetalert2";
 
 export const login = (user) => {
-  const router = useRouter();
+  // const router = useRouter();
 
   return async (dispatch) => {
     try {
@@ -32,8 +32,8 @@ export const login = (user) => {
           showConfirmButton: false,
           timer: 1500,
         }).then(() => {
-          // window.location.replace("/profile");
-          router.push("/profile");
+          window.location.replace("/profile");
+          // router.push("/profile");
         });
       }
     } catch (error) {
@@ -54,6 +54,7 @@ export const login = (user) => {
 };
 
 export const signUp = (user) => {
+  // const router = useRouter();
   return async (dispatch) => {
     try {
       dispatch({ type: authConstant.SIGNUP_REQUEST });
@@ -70,8 +71,8 @@ export const signUp = (user) => {
           showConfirmButton: false,
           timer: 1500,
         }).then(() => {
-          // window.location.replace("/");
-          router.push("/");
+          window.location.replace("/");
+          // router.push("/");
         });
       } else {
         dispatch({
@@ -119,6 +120,7 @@ export const isUserLoggedIn = () => {
 };
 
 export const signout = () => {
+  // const router = useRouter();
   return async (dispatch) => {
     dispatch({ type: authConstant.LOGOUT_REQUEST });
     const res = await axiosInstance.get(`/user/auth/signout`);
@@ -132,8 +134,8 @@ export const signout = () => {
         showConfirmButton: false,
         timer: 1000,
       }).then(() => {
-        // window.location.replace("/login");
-        router.push("/login");
+        window.location.replace("/login");
+        // router.push("/login");
       });
     } else {
       dispatch({
