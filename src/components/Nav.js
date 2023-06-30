@@ -4,7 +4,7 @@ import Image from "next/image";
 import logo from "../../public/assets/logo/Winly-Logo-1.png";
 import Link from "next/link";
 import { navToggleSvg } from "../../public/assets/Icons";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import CartComponent from "./navbar/CartComponent";
 import CurrencyDropdown from "./navbar/CurrencyDropdown";
 import AccountBalance from "./navbar/AccountBalance";
@@ -70,20 +70,32 @@ const Nav = () => {
             {!auth.authenticate ? (
               <>
                 <li>
-                  <a href="/login" className="prim_text_lg_reg">
-                    Login
-                  </a>
+                  <Link href="/login">
+                    <div className="prim_text_lg_reg">Login</div>
+                  </Link>
                 </li>
                 <li>
-                  <a href="/register" className="btn_outline prim_text_lg_reg">
-                    Register
-                  </a>
+                  <Link href="/login">
+                    <div className="btn_outline prim_text_lg_reg">Register</div>
+                  </Link>
                 </li>
               </>
             ) : (
               <>
-                <li className="">{<CartComponent />}</li>
-                <li className="">{<AccountBalance />}</li>
+                <li className="">
+                  {
+                    <Link href="/cart">
+                      <CartComponent />
+                    </Link>
+                  }
+                </li>
+                <li className="">
+                  {
+                    <Link href="/profile">
+                      <AccountBalance />
+                    </Link>
+                  }
+                </li>
               </>
             )}
           </ul>

@@ -1,6 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import { productImage1, productImage2 } from "../../../public/assets/images";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, getCartItems, orderPlace } from "@app/redux/actions";
@@ -60,8 +59,8 @@ const CartPage = () => {
           <p className="prim_text_2xl mb-8">Cart</p>
           {/* PRODUCT */}
           <div className="lg:p-10 sm:p-4 shadow-lg rounded-[24px] grid grid-cols-1 gap-8 bg_sec max-w-[936px]">
-            {cart.cartItems &&
-              cart.cartItems.map((item, index) => {
+            {cart?.cartItems &&
+              cart?.cartItems?.map((item, index) => {
                 return (
                   <div
                     key={index}
@@ -70,24 +69,24 @@ const CartPage = () => {
                     {/* INFO */}
                     <div className="flex gap-10 justify-start items-center">
                       <Image
-                        src={item.product.img.url}
+                        src={item?.product?.img?.url}
                         height={127}
                         width={137}
-                        alt={item.product.title + " image"}
+                        alt={item?.product?.title + " image"}
                       />
 
                       <div>
-                        <p className="prim_text_lg"> {item.product.title} </p>
+                        <p className="prim_text_lg"> {item?.product?.title} </p>
                         <p className="sec_text_md_reg">
-                          Win {item.product.campaign.campaign_name}
+                          Win {item?.product?.campaign?.campaign_name}
                         </p>
                         <p className="font-bold text-[20px] font-sora text-primary-red mt-1 lg:mb-6 sm:mb-1">
-                          $ {item.price}
+                          $ {item?.price}
                         </p>
                         <p className="">
                           You Will Get{" "}
                           <span className="text-success">
-                            {item.product.ticketQty} Tickets
+                            {item?.product?.ticketQty} Tickets
                           </span>
                         </p>
                       </div>
@@ -104,7 +103,7 @@ const CartPage = () => {
                         -
                       </button>
                       <button type="" className="btn_gray_update bg-neutral">
-                        {item.qty}
+                        {item?.qty}
                       </button>
                       <button
                         type=""

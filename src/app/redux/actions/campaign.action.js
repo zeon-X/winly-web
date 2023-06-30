@@ -15,7 +15,7 @@ export const getCampaign = () => {
         });
       }
     } catch (error) {
-      const { data } = error.response;
+      const { data } = error?.response;
       dispatch({
         type: campaignConst.CAMPAIGN_FAILURE,
         payload: data,

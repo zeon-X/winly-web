@@ -1,8 +1,13 @@
+"use client";
+
+// import { useRouter } from "next/router";
 import axiosInstance from "../helpers/axios";
 import { authConstant } from "./constants";
 import Swal from "sweetalert2";
 
 export const login = (user) => {
+  // const router = useRouter();
+
   return async (dispatch) => {
     try {
       dispatch({ type: authConstant.LOGIN_REQUEST });
@@ -28,10 +33,11 @@ export const login = (user) => {
           timer: 1500,
         }).then(() => {
           window.location.replace("/profile");
+          // router.push("/profile");
         });
       }
     } catch (error) {
-      const { data } = error.response;
+      const { data } = error?.response;
       dispatch({
         type: authConstant.LOGIN_FAILURE,
         payload: error,
@@ -48,6 +54,7 @@ export const login = (user) => {
 };
 
 export const signUp = (user) => {
+  // const router = useRouter();
   return async (dispatch) => {
     try {
       dispatch({ type: authConstant.SIGNUP_REQUEST });
@@ -65,6 +72,7 @@ export const signUp = (user) => {
           timer: 1500,
         }).then(() => {
           window.location.replace("/");
+          // router.push("/");
         });
       } else {
         dispatch({
@@ -73,7 +81,7 @@ export const signUp = (user) => {
         });
       }
     } catch (error) {
-      const { data } = error.response;
+      const { data } = error?.response;
       dispatch({
         type: authConstant.SIGNUP_FAILURE,
         payload: { error: data.error },
@@ -92,6 +100,7 @@ export const signUp = (user) => {
 export const isUserLoggedIn = () => {
   return async (dispatch) => {
     const token = window.localStorage.getItem("token");
+    // const token =  localStorage.getItem("token");
     if (token) {
       const user = JSON.parse(localStorage.getItem("user"));
       dispatch({
@@ -111,6 +120,7 @@ export const isUserLoggedIn = () => {
 };
 
 export const signout = () => {
+  // const router = useRouter();
   return async (dispatch) => {
     dispatch({ type: authConstant.LOGOUT_REQUEST });
     const res = await axiosInstance.get(`/user/auth/signout`);
@@ -125,6 +135,7 @@ export const signout = () => {
         timer: 1000,
       }).then(() => {
         window.location.replace("/login");
+        // router.push("/login");
       });
     } else {
       dispatch({

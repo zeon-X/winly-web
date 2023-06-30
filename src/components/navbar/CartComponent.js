@@ -13,7 +13,7 @@ const CartComponent = () => {
     : 0;
 
   return (
-    <a href="/cart" className="prim_text_lg_reg flex  items-center gap-2">
+    <div className="prim_text_lg_reg flex  items-center gap-2">
       {cartSvg}
       <span>
         Cart{" "}
@@ -27,7 +27,7 @@ const CartComponent = () => {
           {totalItem}
         </span>
       </span>
-    </a>
+    </div>
   );
 };
 

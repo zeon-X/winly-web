@@ -10,11 +10,11 @@ const Section1 = () => {
         className="h-full grid lg:grid-cols-LS1 md:grid-cols-1 sm:grid-cols-1 justify-between items-start gap-4"
       >
         {/* BIG POSTER PRIZE + PRODUCT */}
-        <div className="sm:w-full h-full">
+        <div className="sm:w-full md:w-full h-full">
           <FocusingPrizeWithProduct />
         </div>
         {/* BIG POSTER PRIZE + PRODUCT */}
-        <div className=" sm:w-full flex flex-col gap-4 ">
+        <div className=" sm:w-full md:w-full flex flex-col gap-4 ">
           {/* WINNER PRIZE DISPLAY */}
           <div className="">
             <WinnerPrizeDisplay />

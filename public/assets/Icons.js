@@ -114,13 +114,13 @@ const navToggleSvg = (
 
 const arrowDown = (
   <svg
-    className="fill-current"
+    width="12"
+    height="6"
+    viewBox="0 0 12 6"
+    fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    width="20"
-    height="20"
-    viewBox="0 0 24 24"
   >
-    <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+    <path d="M0 0L6 6L12 0H0Z" fill="white" />
   </svg>
 );
 

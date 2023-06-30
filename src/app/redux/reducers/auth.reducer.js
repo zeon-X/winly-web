@@ -1,3 +1,4 @@
+"use client";
 import { authConstant } from "../actions/constants";
 
 const initState = {
