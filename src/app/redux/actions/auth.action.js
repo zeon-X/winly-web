@@ -1,3 +1,5 @@
+"use client";
+
 import { useRouter } from "next/router";
 import axiosInstance from "../helpers/axios";
 import { authConstant } from "./constants";
