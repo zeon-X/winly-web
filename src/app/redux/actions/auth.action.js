@@ -1,8 +1,11 @@
+import { useRouter } from "next/router";
 import axiosInstance from "../helpers/axios";
 import { authConstant } from "./constants";
 import Swal from "sweetalert2";
 
 export const login = (user) => {
+  const router = useRouter();
+
   return async (dispatch) => {
     try {
       dispatch({ type: authConstant.LOGIN_REQUEST });
@@ -27,7 +30,8 @@ export const login = (user) => {
           showConfirmButton: false,
           timer: 1500,
         }).then(() => {
-          window.location.replace("/profile");
+          // window.location.replace("/profile");
+          router.push("/profile");
         });
       }
     } catch (error) {
@@ -64,7 +68,8 @@ export const signUp = (user) => {
           showConfirmButton: false,
           timer: 1500,
         }).then(() => {
-          window.location.replace("/");
+          // window.location.replace("/");
+          router.push("/");
         });
       } else {
         dispatch({
@@ -91,7 +96,8 @@ export const signUp = (user) => {
 
 export const isUserLoggedIn = () => {
   return async (dispatch) => {
-    const token = window.localStorage.getItem("token");
+    // const token = window.localStorage.getItem("token");
+    const token = localStorage.getItem("token");
     if (token) {
       const user = JSON.parse(localStorage.getItem("user"));
       dispatch({
@@ -124,7 +130,8 @@ export const signout = () => {
         showConfirmButton: false,
         timer: 1000,
       }).then(() => {
-        window.location.replace("/login");
+        // window.location.replace("/login");
+        router.push("/login");
       });
     } else {
       dispatch({
