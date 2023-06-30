@@ -55,6 +55,12 @@ export const addToCart = (item, qty) => {
         type: cartConstants.ADD_TO_CART_FAILURE,
         payload: data,
       });
+      Swal.fire({
+        icon: "error",
+        title: data.msg,
+        showConfirmButton: false,
+        timer: 1000,
+      });
     }
   };
 };
