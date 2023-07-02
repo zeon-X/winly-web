@@ -68,15 +68,15 @@ export const addToCart = (item, qty) => {
 
 export const removeCart = (requestID) => {
   return async (dispatch) => {
-    dispatch({ type: cartConstants.REMOVE_CART_ITEM_REQUEST });
+    dispatch({ type: cartConstants.REMOVE_CART_REQUEST });
     const res = await axiosInstance.post(`/cart/remove`, requestID);
     if (res.status === 202) {
-      dispatch({ type: cartConstants.REMOVE_CART_ITEM_SUCCESS });
+      dispatch({ type: cartConstants.REMOVE_CART_SUCCESS });
       dispatch(getCartItems());
     } else {
       const { error } = res.data;
       dispatch({
-        type: cartConstants.REMOVE_CART_ITEM_FAILURE,
+        type: cartConstants.REMOVE_CART_FAILURE,
         payload: { error },
       });
     }
