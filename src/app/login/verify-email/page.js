@@ -1,5 +1,5 @@
 "use client";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 const formDivCss =
@@ -12,14 +12,17 @@ const formInputLabelCss = "prim_text_sm_reg text-white";
 const VerifyEmail = () => {
   const [vc, setVC] = useState("");
   const searchParams = useSearchParams();
+  const router = useRouter();
 
   // http://localhost:3000/login/verify-email?email=mdshefatzeon@gmail.com
 
   useEffect(() => {
-    let url = `${searchParams}`;
-    url = url.split("=")[1];
+    // const url = router;
+    // let url = `${searchParams}`;
+    // url = url.split("=")[1];
+    const email = searchParams.get("email");
 
-    console.log(url);
+    console.log(email);
   }, [searchParams]);
   return (
     <section className="max-w-[1920px] mx-auto lg:px-6 sm:p-4">

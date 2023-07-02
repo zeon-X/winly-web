@@ -40,7 +40,7 @@ export const login = (user) => {
       const { data } = error?.response;
       dispatch({
         type: authConstant.LOGIN_FAILURE,
-        payload: error,
+        payload: { msg: data.msg, status: error.response.status },
       });
       console.log(error);
       Swal.fire({
