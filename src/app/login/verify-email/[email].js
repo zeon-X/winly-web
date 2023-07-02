@@ -8,7 +8,7 @@ const formInputCss =
 const formInputWarningCss = "sec_text_sm text-red-500";
 const formInputLabelCss = "prim_text_sm_reg text-white";
 
-const VerifyEmail = () => {
+const VerifyEmailSlug = () => {
   const [vc, setVC] = useState("");
   return (
     <section className="max-w-[1920px] mx-auto lg:px-6 sm:p-4">
@@ -51,4 +51,4 @@ const VerifyEmail = () => {
   );
 };
 
-export default VerifyEmail;
+export default VerifyEmailSlug;
