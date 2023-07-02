@@ -3,6 +3,7 @@ import { login } from "@app/redux/actions";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import PasswordInput from "./PasswordInput";
+import { useRouter } from "next/navigation";
 const formDivCss =
   "mb-4 form-control bg-transparent border-4 px-6 py-2 rounded-[16px] w-full ";
 const formInputCss =
@@ -13,6 +14,8 @@ const formInputLabelCss = "prim_text_sm_reg text-white";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const router = useRouter();
 
   const dispatch = useDispatch();
 
@@ -25,7 +28,18 @@ const Login = () => {
     e.preventDefault();
   };
 
+  // const auth = useSelector((state) => state.auth);
+
   const auth = useSelector((state) => state.auth);
+  useEffect(() => {
+    if (
+      !auth.authenticate &&
+      auth.error !== null &&
+      auth.error.status === 403
+    ) {
+      router.push(`/login/verify-email?email=${email}`);
+    }
+  }, [auth]);
 
   useEffect(() => {
     if (

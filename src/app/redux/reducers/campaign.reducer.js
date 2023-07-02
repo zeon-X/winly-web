@@ -1,3 +1,4 @@
+"use client";
 import { campaignConst } from "../actions/constants";
 
 const initState = {

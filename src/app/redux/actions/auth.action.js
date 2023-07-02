@@ -36,7 +36,9 @@ export const login = (user) => {
       const { data, status } = error?.response;
       dispatch({
         type: authConstant.LOGIN_FAILURE,
-        payload: { msg: data.msg, status: status, email: data.email },
+
+        payload: { msg: data.msg, status: error.response.status },
+
       });
       Swal.fire({
         icon: "error",

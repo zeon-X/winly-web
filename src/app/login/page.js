@@ -1,10 +1,18 @@
 "use client";
 import Login from "@components/auth/Login";
 import Registration from "@components/auth/Registration";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 const LoginRegister = () => {
   const [isLogin, setIsLogin] = useState(true);
+
+  // const auth = useSelector((state) => state.auth);
+  // useEffect(() => {
+  //   if (!auth.authenticate && auth.error !== null && auth.error.status === 403) {
+
+  //   }
+  // }, [auth]);
   return (
     <section className="max-w-[1920px] mx-auto lg:px-6 sm:p-4">
       <div className="max-w-[760px] mx-auto bg_sec rounded-3xl shadow-xl py-10 lg:px-20 sm:px-6">

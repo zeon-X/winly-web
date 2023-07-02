@@ -1,3 +1,4 @@
+"use client";
 import { orderConstant } from "../actions/constants";
 
 const initState = {
