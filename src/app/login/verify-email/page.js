@@ -1,6 +1,10 @@
 "use client";
-import { useSearchParams, useRouter } from "next/navigation";
+
+import { requestCode, verifyCode } from "@app/redux/actions";
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import { useSearchParams, useRouter } from "next/navigation";
 
 const formDivCss =
   "mb-4 form-control bg-transparent border-4 px-6 py-2 rounded-[16px] w-full ";
@@ -12,18 +16,24 @@ const formInputLabelCss = "prim_text_sm_reg text-white";
 const VerifyEmail = () => {
   const [vc, setVC] = useState("");
   const searchParams = useSearchParams();
-  const router = useRouter();
-
-  // http://localhost:3000/login/verify-email?email=mdshefatzeon@gmail.com
+  const [email, setEmail] = useState("");
 
   useEffect(() => {
-    // const url = router;
-    // let url = `${searchParams}`;
-    // url = url.split("=")[1];
     const email = searchParams.get("email");
-
-    console.log(email);
+    dispatch(requestCode({ email: email }));
+    setEmail(email);
   }, [searchParams]);
+
+  const dispatch = useDispatch();
+
+  const handleVerification = () => {
+    const data = {
+      code: parseInt(vc),
+      email: email,
+    };
+    dispatch(verifyCode(data));
+  };
+
   return (
     <section className="max-w-[1920px] mx-auto lg:px-6 sm:p-4">
       <div className="max-w-[760px] mx-auto bg_sec rounded-3xl shadow-xl py-10 lg:px-20 sm:px-6">
@@ -50,6 +60,7 @@ const VerifyEmail = () => {
         <button
           type="submit"
           className="text-white bg-primary font-sora rounded-2xl  py-6 w-full "
+          onClick={() => handleVerification()}
         >
           Verify Email
         </button>

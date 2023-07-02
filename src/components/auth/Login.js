@@ -16,7 +16,6 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   const router = useRouter();
-
   const dispatch = useDispatch();
 
   const handleLogin = (e) => {
@@ -27,8 +26,6 @@ const Login = () => {
     dispatch(login(user));
     e.preventDefault();
   };
-
-  // const auth = useSelector((state) => state.auth);
 
   const auth = useSelector((state) => state.auth);
   useEffect(() => {
