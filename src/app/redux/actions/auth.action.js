@@ -33,12 +33,11 @@ export const login = (user) => {
         });
       }
     } catch (error) {
-      const { data, status } = error?.response;
+      const { data } = error?.response;
       dispatch({
         type: authConstant.LOGIN_FAILURE,
 
         payload: { msg: data.msg, status: error.response.status },
-
       });
       Swal.fire({
         icon: "error",
@@ -51,7 +50,6 @@ export const login = (user) => {
 };
 
 export const signUp = (user) => {
-  // const router = useRouter();
   return async (dispatch) => {
     try {
       dispatch({ type: authConstant.SIGNUP_REQUEST });
@@ -61,7 +59,6 @@ export const signUp = (user) => {
           type: authConstant.SIGNUP_SUCCESS,
           payload: res.data.user,
         });
-
         Swal.fire({
           icon: "success",
           title: "Registration Success",
@@ -69,7 +66,9 @@ export const signUp = (user) => {
           showConfirmButton: false,
           timer: 1500,
         }).then(() => {
-          window.location.replace("/login/verify-email");
+          window.location.replace(
+            `/login/verify-email?email=${res.data.user.email}`
+          );
         });
       } else {
         dispatch({
@@ -197,7 +196,7 @@ export const verifyCode = (data) => {
       });
       Swal.fire({
         icon: "error",
-        title: `${res.data.msg}`,
+        title: `${data.msg}`,
         showConfirmButton: false,
         timer: 1500,
       });

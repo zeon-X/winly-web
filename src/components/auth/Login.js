@@ -16,7 +16,6 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   const router = useRouter();
-
   const dispatch = useDispatch();
 
   const handleLogin = (e) => {
@@ -28,8 +27,6 @@ const Login = () => {
     e.preventDefault();
   };
 
-  // const auth = useSelector((state) => state.auth);
-
   const auth = useSelector((state) => state.auth);
   useEffect(() => {
     if (
@@ -38,16 +35,6 @@ const Login = () => {
       auth.error.status === 403
     ) {
       router.push(`/login/verify-email?email=${email}`);
-    }
-  }, [auth]);
-
-  useEffect(() => {
-    if (
-      !auth.authenticate &&
-      auth.error !== null &&
-      auth.error.status === 403
-    ) {
-      window.location.replace("/login/verify-email");
     }
   }, [auth]);
 

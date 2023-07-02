@@ -6,8 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { useSearchParams, useRouter } from "next/navigation";
 
-
-
 const formDivCss =
   "mb-4 form-control bg-transparent border-4 px-6 py-2 rounded-[16px] w-full ";
 const formInputCss =
@@ -15,44 +13,26 @@ const formInputCss =
 const formInputWarningCss = "sec_text_sm text-red-500";
 const formInputLabelCss = "prim_text_sm_reg text-white";
 
-
-const LoginRegister = () => {
-  const dispatch = useDispatch();
-
-  const auth = useSelector((state) => state.auth);
-  console.log(auth);
-
-  const [vc, setVC] = useState("");
-
-  const data = { email: auth.user.email };
-
-  useEffect(() => {
-    dispatch(requestCode(data));
-  }, []);
-
-  const handleVerification = () => {
-    const data = {
-      code: vc,
-    };
-    dispatch(verifyCode(data));
-  };
-
-
 const VerifyEmail = () => {
   const [vc, setVC] = useState("");
   const searchParams = useSearchParams();
-  const router = useRouter();
-
-  // http://localhost:3000/login/verify-email?email=mdshefatzeon@gmail.com
+  const [email, setEmail] = useState("");
 
   useEffect(() => {
-    // const url = router;
-    // let url = `${searchParams}`;
-    // url = url.split("=")[1];
     const email = searchParams.get("email");
-
-    console.log(email);
+    dispatch(requestCode({ email: email }));
+    setEmail(email);
   }, [searchParams]);
+
+  const dispatch = useDispatch();
+
+  const handleVerification = () => {
+    const data = {
+      code: parseInt(vc),
+      email: email,
+    };
+    dispatch(verifyCode(data));
+  };
 
   return (
     <section className="max-w-[1920px] mx-auto lg:px-6 sm:p-4">
@@ -80,7 +60,7 @@ const VerifyEmail = () => {
         <button
           type="submit"
           className="text-white bg-primary font-sora rounded-2xl  py-6 w-full "
-          onClick={() => handleVerification}
+          onClick={() => handleVerification()}
         >
           Verify Email
         </button>

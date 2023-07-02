@@ -64,7 +64,7 @@ const ItemDisplay = () => {
                             fill="#F19C08"
                           />
                         </svg>{" "}
-                        <span>{item.title}</span>
+                        <span>Buy a {item.title} and make it yours!</span>
                       </p>
                     </div>
                     <Image
