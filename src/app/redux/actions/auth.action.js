@@ -1,13 +1,10 @@
 "use client";
 
-// import { useRouter } from "next/router";
 import axiosInstance from "../helpers/axios";
 import { authConstant } from "./constants";
 import Swal from "sweetalert2";
 
 export const login = (user) => {
-  // const router = useRouter();
-
   return async (dispatch) => {
     try {
       dispatch({ type: authConstant.LOGIN_REQUEST });
@@ -33,16 +30,14 @@ export const login = (user) => {
           timer: 1500,
         }).then(() => {
           window.location.replace("/profile");
-          // router.push("/profile");
         });
       }
     } catch (error) {
-      const { data } = error?.response;
+      const { data, status } = error?.response;
       dispatch({
         type: authConstant.LOGIN_FAILURE,
-        payload: error,
+        payload: { msg: data.msg, status: status, email: data.email },
       });
-      console.log(error);
       Swal.fire({
         icon: "error",
         title: `${data.msg}`,
@@ -62,17 +57,17 @@ export const signUp = (user) => {
       if (res.status === 201) {
         dispatch({
           type: authConstant.SIGNUP_SUCCESS,
-          payload: res.data,
+          payload: res.data.user,
         });
+
         Swal.fire({
           icon: "success",
           title: "Registration Success",
-          text: `${res.data.message}`,
+          text: `${res.data.msg}`,
           showConfirmButton: false,
           timer: 1500,
         }).then(() => {
-          window.location.replace("/");
-          // router.push("/");
+          window.location.replace("/login/verify-email");
         });
       } else {
         dispatch({
@@ -135,12 +130,74 @@ export const signout = () => {
         timer: 1000,
       }).then(() => {
         window.location.replace("/login");
-        // router.push("/login");
       });
     } else {
       dispatch({
         type: authConstant.LOGOUT_FAILURE,
         payload: { error: res.data.error },
+      });
+    }
+  };
+};
+
+export const requestCode = (data) => {
+  return async (dispatch) => {
+    try {
+      dispatch({ type: authConstant.CODE_REQUEST });
+      const res = await axiosInstance.post(`/user/auth/email/sendcode`, data);
+      if (res.status === 202) {
+        dispatch({
+          type: authConstant.CODE_SUCCESS,
+          payload: { msg: res.data.msg, status: res.status },
+        });
+      }
+    } catch (error) {
+      const { data } = error.response;
+      dispatch({
+        type: authConstant.CODE_FAILURE,
+        payload: { msg: data.msg, status: error.response.status },
+      });
+      Swal.fire({
+        icon: "info",
+        title: "Something went wrong. Please click Resend button.",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    }
+  };
+};
+
+export const verifyCode = (data) => {
+  return async (dispatch) => {
+    try {
+      dispatch({ type: authConstant.VERIFY_REQUEST });
+      const res = await axiosInstance.post(`/user/auth/email/verify`, data);
+      if (res.status === 202) {
+        dispatch({
+          type: authConstant.VERIFY_SUCCESS,
+          payload: res.data,
+        });
+        Swal.fire({
+          icon: "success",
+          title: "Congratulations!",
+          text: `${res.data.msg}`,
+          showConfirmButton: false,
+          timer: 1500,
+        }).then(() => {
+          window.location.replace("/login");
+        });
+      }
+    } catch (error) {
+      const { data } = error.response;
+      dispatch({
+        type: authConstant.VERIFY_FAILURE,
+        payload: { msg: data.msg, status: error.response.status },
+      });
+      Swal.fire({
+        icon: "error",
+        title: `${res.data.msg}`,
+        showConfirmButton: false,
+        timer: 1500,
       });
     }
   };

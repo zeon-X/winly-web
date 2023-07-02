@@ -6,6 +6,8 @@ const initState = {
   user: {},
   authenticate: false,
   authenticating: false,
+  email_sent: false,
+  verified: false,
   loading: false,
   error: null,
 };
@@ -70,7 +72,50 @@ export default (state = initState, action) => {
         loading: false,
       };
       break;
+    case authConstant.CODE_REQUEST:
+      state = {
+        ...state,
+        loading: true,
+        verified: false,
+      };
+      break;
+    case authConstant.CODE_SUCCESS:
+      state = {
+        ...state,
+        email_sent: true,
+        loading: false,
+        verified: false,
+      };
+      break;
+    case authConstant.CODE_FAILURE:
+      state = {
+        ...state,
+        error: action.payload,
+        verified: false,
+      };
+      break;
+    case authConstant.VERIFY_REQUEST:
+      state = {
+        ...state,
+        loading: true,
+        verified: false,
+      };
+      break;
+    case authConstant.VERIFY_SUCCESS:
+      state = {
+        ...state,
+        verified: true,
+        loading: false,
+        error: null,
+      };
+      break;
+    case authConstant.VERIFY_FAILURE:
+      state = {
+        ...state,
+        error: action.payload,
+        verified: false,
+      };
+      break;
   }
-
   return state;
 };

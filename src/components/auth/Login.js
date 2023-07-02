@@ -27,6 +27,16 @@ const Login = () => {
 
   const auth = useSelector((state) => state.auth);
 
+  useEffect(() => {
+    if (
+      !auth.authenticate &&
+      auth.error !== null &&
+      auth.error.status === 403
+    ) {
+      window.location.replace("/login/verify-email");
+    }
+  }, [auth]);
+
   return (
     <div>
       <form onSubmit={handleLogin}>
