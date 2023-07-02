@@ -2,14 +2,16 @@
 import LoginRegister from "@app/login/page";
 import ClientDashboardNav from "@components/navbar/ClientDashboardNav";
 import "@styles/globals.css";
+import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
 
 export default function ProfileLayout({ children }) {
   const auth = useSelector((state) => state.auth);
-  console.log(auth);
+  const router = useRouter();
 
   if (!auth.authenticate) {
-    return <LoginRegister />;
+    router.push("/login");
+    return <></>;
   } else {
     return (
       <section className="max-w-[1920px] w-full mx-auto flex justify-between gap-10 items-start p-6">
