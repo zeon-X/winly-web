@@ -13,6 +13,8 @@ const VerifyEmail = () => {
   const [vc, setVC] = useState("");
   const searchParams = useSearchParams();
 
+  // http://localhost:3000/login/verify-email?email=mdshefatzeon@gmail.com
+
   useEffect(() => {
     let url = `${searchParams}`;
     url = url.split("=")[1];
