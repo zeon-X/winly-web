@@ -14,7 +14,7 @@ import { getCartItems } from "@app/redux/actions";
 const Nav = () => {
   const auth = useSelector((state) => state.auth);
 
-  console.log(auth);
+  // console.log(auth);
 
   const dispatch = useDispatch();
 

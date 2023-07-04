@@ -3,7 +3,9 @@ import React, { useState } from "react";
 import { mc, pp } from "../../../../public/assets/images";
 import Image from "next/image";
 import { moreHorizontal } from "../../../../public/assets/Icons";
-import RequirePasswordModal from "@components/payment-options/RequirePasswordModal";
+import RequirePasswordModalSeeDetails from "@components/payment-options/RequirePasswordModalSeeDetails";
+import RequirePasswordModalDeleteGateway from "@components/payment-options/RequirePasswordModalDeleteGateway.js";
+import AddPaymentMethod from "@components/payment-options/AddPaymentMethod";
 
 const PaymentMethod = ({ po }) => {
   return (
@@ -25,16 +27,20 @@ const PaymentMethod = ({ po }) => {
           >
             <li className="py-4 px-6">
               <label
-                htmlFor="reqPassModal"
-                className="prim_text_lg_reg text-white cursor-pointer"
+                htmlFor="rpmsd"
+                className="prim_text_lg_reg text-white cursor-pointer w-full"
               >
                 See Details
               </label>
-              {/* <a className="prim_text_lg_reg cursor-pointer">See Details</a> */}
             </li>
             <div className="border-b border-b-[#EAEAEA] w-full" />
             <li className="py-4 px-6">
-              <a className="prim_text_lg_reg cursor-pointer">Delete Gateway</a>
+              <label
+                htmlFor="rpmdg"
+                className="prim_text_lg_reg text-white cursor-pointer w-full"
+              >
+                Delete Gateway
+              </label>
             </li>
           </ul>
         </div>
@@ -64,6 +70,8 @@ const PaymentOptionsPage = () => {
       icon: mc,
     },
   ]);
+
+  // const [addPaymentMethod, setAddPaymentMethod] = useState(false);
   return (
     <div>
       <div>
@@ -76,10 +84,24 @@ const PaymentOptionsPage = () => {
 
           <div className="lg:max-w-[496px] w-full min-h-[183px] p-6 bg_sec rounded-xl flex flex-col justify-center items-center">
             <p className="prim_text_lg_reg mb-3">Add more payment method</p>
-            <button className="btn_primary lg:max-w-[130px] w-full lg:min-w-[300px]">
+            <label
+              htmlFor="add_payment_method"
+              className="btn_primary flex justify-center items-center cursor-pointer lg:max-w-[130px] w-full lg:min-w-[300px]"
+            >
               Add Payment Method
-            </button>
+            </label>
           </div>
+
+          <input type="checkbox" id="rpmsd" className="modal-toggle" />
+          <RequirePasswordModalSeeDetails />
+          <input type="checkbox" id="rpmdg" className="modal-toggle" />
+          <RequirePasswordModalDeleteGateway />
+          <input
+            type="checkbox"
+            id="add_payment_method"
+            className="modal-toggle"
+          />
+          <AddPaymentMethod />
         </div>
       </div>
     </div>

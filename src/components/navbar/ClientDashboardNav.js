@@ -58,9 +58,9 @@ const ClientDashboardNav = () => {
   const userData = JSON.parse(localStorage.getItem("user"));
 
   const profileImg =
-    userData.img.url === null
+    userData?.img?.url === null
       ? "https://winly-storage.s3.me-central-1.amazonaws.com/profileicon.jpeg"
-      : userData.img.url;
+      : userData?.img?.url;
 
   return (
     <div className="w-full flex flex-col gap-6">
@@ -71,7 +71,7 @@ const ClientDashboardNav = () => {
           height={112}
           width={112}
           className="rounded-full"
-          alt={userData.firstName + "profile picture"}
+          alt={userData?.firstName + "profile picture"}
         />
         <p className="prim_text_lg mt-[14px]">{userData?.fullName}</p>
         <p className="sec_text_lg">{userData?.email}</p>

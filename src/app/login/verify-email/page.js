@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams, useRouter } from "next/navigation";
 
 const formDivCss =
-  "mb-4 form-control bg-transparent border-4 px-6 py-2 rounded-[16px] w-full ";
+  "mb-4 form-control bg-transparent border-4 px-6 py-2 rounded-[16px] w-full font-sora";
 const formInputCss =
   "p-1 focus:outline-none bg-transparent sec_text_xl text-white w-full";
 const formInputWarningCss = "sec_text_sm text-red-500";
@@ -46,7 +46,7 @@ const VerifyEmail = () => {
           </label>
           <input
             type="text"
-            placeholder="XX XX XX"
+            placeholder="XXXX"
             name="vc"
             className={formInputCss}
             value={vc}

@@ -36,6 +36,9 @@ p,a{
 .bg_sec_light{
   background-color: #313131;
 }
+.bg_modal{
+  background-color: #2D2D2D;
+}
 
 .bg-nutral{
   background-color:#F8F8F8 ;
