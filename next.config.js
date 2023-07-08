@@ -7,6 +7,7 @@ const nextConfig = {
         hostname: "i.ibb.co",
         // ...
       },
+
       {
         protocol: "https",
         hostname: "https://www.pexels.com/",

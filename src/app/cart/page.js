@@ -1,11 +1,13 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, getCartItems, orderPlace } from "@app/redux/actions";
 
 const CartPage = () => {
+  const [address, setAddress] = useState("");
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -14,12 +16,14 @@ const CartPage = () => {
 
   const cart = useSelector((state) => state.cart.cart);
 
+  // console.log(cart);
+
   const handleCart = ({ productData, qty }) => {
     const item = {
       _id: productData.product._id,
       price: productData.price,
     };
-    console.log(item);
+    // console.log(item);
     dispatch(addToCart(item, qty));
   };
 
@@ -68,9 +72,13 @@ const CartPage = () => {
                     className="flex lg:flex-row md:flex-row sm:flex-col justify-between items-center gap-6"
                   >
                     {/* INFO */}
-                    <div className="flex gap-10 justify-start items-center">
+                    <div className="flex gap-10 justify-start items-center rounded-2xl">
                       <Image
-                        src={item?.product?.img?.url}
+                        src={
+                          item?.product?.img?.url
+                            ? item?.product?.img?.url
+                            : "https://i.ibb.co/fFnnXLZ/shopping-cart.png"
+                        }
                         height={127}
                         width={137}
                         alt={item?.product?.title + " image"}
@@ -122,11 +130,7 @@ const CartPage = () => {
 
             {/* EXCHANGE WITH WXTRA PRODUCT */}
             <div className="flex justify-start items-center gap-2 mt-8">
-              <input
-                type="checkbox"
-                checked="checked"
-                className="checkbox checkbox-success"
-              />
+              <input type="checkbox" className="checkbox checkbox-success" />
               <p className="prim_text_lg">
                 Exchange the product with EXTRA ticket
               </p>
@@ -149,21 +153,45 @@ const CartPage = () => {
             <div className="p-6 ">
               <p className="mb-2 flex justify-between items-center sec_text_md_reg">
                 <span>Sub Total</span>
-                <span>$235</span>
+                <span>$0</span>
               </p>
               <p className="mb-2  flex justify-between items-center sec_text_md_reg">
                 <span>VAT</span>
-                <span>$70</span>
+                <span>$0</span>
               </p>
             </div>
             <div></div>
           </div>
+
+          {/* ADDRESS */}
+
+          <div className="my-4">
+            <div className="flex justify-between items-center">
+              <div className="form-control w-full">
+                <label className="label">
+                  <span className="label-text text-white font-sora">
+                    Address
+                  </span>
+                </label>
+                <textarea
+                  className="textarea textarea-bordered h-32 bg_sec rounded-xl shadow-lg text-white"
+                  placeholder="Apartment No, Road No, City, Zip Code"
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                ></textarea>
+                <label className="label">
+                  <span className="label-text-alt"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+
           {/* PAYMENT METHOD  */}
-          <div style={{ width: "300px", marginTop: 20, marginLeft: 100 }}>
+          <div className="">
             <button
               onClick={() => handleOrder(cart.cartItems)}
               type=""
-              className="flex justify-center items-center bg-[#202020] px-4 py-2 rounded-[14px] text-[18px] font-semibold text-white sm:hidden lg:block"
+              className="flex justify-center items-center bg-primary w-full py-2 rounded-xl text-[18px] font-semibold text-white"
             >
               Place Order
             </button>

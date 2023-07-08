@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const formDivCss =
   "form-control bg-info px-6 py-2 rounded-[16px] w-full max-width-className";
@@ -11,13 +11,28 @@ const formInputLabelCss = "prim_text_sm_reg text-white";
 const PersoalDetails = () => {
   const user = JSON.parse(localStorage.getItem("user"));
 
-  const [firstName, setFirstName] = useState(user.firstName);
-  const [lastName, setLastName] = useState(user.lastName);
-  const [email, setEmail] = useState(user.email);
-  const [gender, setGender] = useState(user.gender);
-  const [country, setCountry] = useState(user.country);
-  const [dob, setDob] = useState(user.dob);
-  const [phone, setPhone] = useState(user.phone);
+  console.log(user);
+
+  const [firstName, setFirstName] = useState(user?.firstName);
+  const [lastName, setLastName] = useState(user?.lastName);
+  const [email, setEmail] = useState(user?.email);
+  const [gender, setGender] = useState(user?.gender);
+  const [country, setCountry] = useState(user?.country);
+  const [dob, setDob] = useState(user?.dob);
+  const [phone, setPhone] = useState(user?.phone);
+
+  const [disableUpdateBtn, setDisableUpdateBtn] = useState(true);
+
+  useEffect(() => {
+    if (
+      user?.firstName != firstName ||
+      user?.lastName != lastName ||
+      user?.phone != phone
+    )
+      setDisableUpdateBtn((state) => {
+        !state;
+      });
+  }, [firstName, lastName, phone]);
 
   return (
     <div>
@@ -35,6 +50,7 @@ const PersoalDetails = () => {
               name="firstName"
               className={formInputCss}
               value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
             />
             <label className="label">
               <span className={formInputWarningCss}></span>
@@ -50,6 +66,7 @@ const PersoalDetails = () => {
               name="lastName"
               className={formInputCss}
               value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
             />
             <label className="label">
               <span className={formInputWarningCss}></span>
@@ -96,6 +113,7 @@ const PersoalDetails = () => {
                 placeholder="********"
                 className={formInputCss}
                 value={phone}
+                onChange={(e) => setPhone(e.target.value)}
               />
               <label className="label">
                 <span className={formInputWarningCss}></span>
@@ -129,6 +147,7 @@ const PersoalDetails = () => {
               className={formInputCss}
               name="country"
               value={country}
+              disabled
             />
             <label className="label">
               <span className={formInputWarningCss}></span>
@@ -139,7 +158,8 @@ const PersoalDetails = () => {
             type="submit"
             name="update"
             value="Update"
-            className="btn_gray"
+            className="btn_gray btn "
+            disabled={disableUpdateBtn}
           />
         </form>
       </div>

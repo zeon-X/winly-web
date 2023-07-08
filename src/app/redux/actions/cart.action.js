@@ -36,6 +36,8 @@ export const addToCart = (item, qty) => {
           qty: qty,
         },
       };
+
+      console.log(cartData);
       const res = await axiosInstance.post(`/user/cart/add`, cartData);
 
       if (res.status === 201) {
