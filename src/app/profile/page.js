@@ -1,3 +1,4 @@
+"use client";
 import PersoalDetails from "./personal-details/page";
 
 const page = () => {

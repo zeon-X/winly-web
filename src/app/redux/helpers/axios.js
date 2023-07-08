@@ -1,12 +1,12 @@
-"use client";
-
 import axios from "axios";
 import { api } from "./urlConfig";
 import store from "../store";
 import { authConstant } from "../actions/constants";
 
-const token = window.localStorage.getItem("token");
-// const token =  localStorage.getItem("token");
+let token;
+if (typeof window !== "undefined") {
+  token = window.localStorage.getItem("token");
+}
 
 const axiosInstance = axios.create({
   baseURL: api,

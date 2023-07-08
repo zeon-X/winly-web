@@ -1,5 +1,6 @@
 "use client";
-import axiosInstance from "../helpers/axios";
+import axiosInstance from "@app/redux/helpers/axios";
+// import axiosInstance from "../../../helpers/axios";
 import { campaignConst } from "./constants";
 
 export const getCampaign = () => {
