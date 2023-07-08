@@ -1,29 +1,8 @@
 "use client";
-import LoginRegister from "@app/login/page";
 import ClientDashboardNav from "@components/navbar/ClientDashboardNav";
 import "@styles/globals.css";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
-import { useSelector } from "react-redux";
 
 export default function ProfileLayout({ children }) {
-  const auth = useSelector((state) => state.auth);
-
-  const router = useRouter();
-
-  // useEffect(() => {
-  //   console.log("auth");
-  //   console.log(auth);
-  //   if (!auth.authenticate) {
-  //     router.push("/login");
-  //     console.log("redirect");
-  //   }
-  // }, [auth]);
-
-  if (!auth.authenticate) {
-    router.push("/login");
-    console.log("redirect");
-  }
   return (
     <section className="max-w-[1920px] w-full mx-auto flex justify-between gap-10 items-start p-6">
       {/* w-[337px] */}

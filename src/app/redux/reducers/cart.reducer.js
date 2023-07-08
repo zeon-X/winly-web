@@ -9,27 +9,27 @@ const initState = {
 
 export default (state = initState, action) => {
   switch (action.type) {
-    // case cartConstants.ADD_TO_CART_REQUEST:
-    //   state = {
-    //     ...state,
-    //     loading: true,
-    //   };
-    //   break;
-    // case cartConstants.ADD_TO_CART_SUCCESS:
-    //   state = {
-    //     ...state,
-    //     cartItems: action.payload,
-    //     loading: false,
-    //     error: null,
-    //   };
-    //   break;
-    // case cartConstants.ADD_TO_CART_FAILURE:
-    //   state = {
-    //     ...state,
-    //     error: action.payload,
-    //     loading: false,
-    //   };
-    //   break;
+    case cartConstants.ADD_TO_CART_REQUEST:
+      state = {
+        ...state,
+        loading: true,
+      };
+      break;
+    case cartConstants.ADD_TO_CART_SUCCESS:
+      state = {
+        ...state,
+
+        loading: false,
+        error: null,
+      };
+      break;
+    case cartConstants.ADD_TO_CART_FAILURE:
+      state = {
+        ...state,
+        error: action.payload,
+        loading: false,
+      };
+      break;
     case cartConstants.CART_GET_REQUEST:
       state = {
         ...state,

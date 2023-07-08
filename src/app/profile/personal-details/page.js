@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
 
 const formDivCss =
   "form-control bg-info px-6 py-2 rounded-[16px] w-full max-width-className";
