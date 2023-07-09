@@ -11,6 +11,8 @@ import Footer from "./Footer";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { isUserLoggedIn } from "@app/redux/actions";
+import AccountBalance from "./navbar/AccountBalance";
+import Link from "next/link";
 
 const Drawer = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(0);
@@ -61,27 +63,40 @@ const Drawer = ({ children }) => {
             <CurrencyDropdown />
           </li>
 
-          <li>
-            <CartComponent />
-          </li>
-
-          {!isLoggedIn ? (
+          {!auth.authenticate ? (
             <>
               <li>
-                <a href="/login" className="prim_text_lg_reg">
-                  Login
-                </a>
+                <Link href="/login">
+                  <p className="prim_text_lg_reg">Login</p>
+                </Link>
               </li>
               <li>
-                <a href="/register" className=" prim_text_lg_reg">
-                  Register
-                </a>
+                <Link href="/login">
+                  <p className="prim_text_lg_reg">Register</p>
+                </Link>
               </li>
             </>
           ) : (
-            <li>
-              <ClientDashboardNav />
-            </li>
+            <>
+              <li className="">
+                {
+                  <Link href="/cart">
+                    <CartComponent />
+                  </Link>
+                }
+              </li>
+              <li className="">
+                {
+                  <Link href="/profile">
+                    <AccountBalance />
+                  </Link>
+                }
+              </li>
+
+              <li>
+                <ClientDashboardNav />
+              </li>
+            </>
           )}
         </ul>
       </div>
