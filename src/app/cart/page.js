@@ -4,7 +4,10 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, getCartItems, orderPlace } from "@app/redux/actions";
-import { visa, wcc, mc, cc, pp } from "../../../public/assets/images";
+import { Elements } from "@stripe/react-stripe-js";
+import { CheckOutForm } from "@components/CheckOutForm";
+import { loadStripe } from "@stripe/stripe-js";
+import axiosInstance from "@app/redux/helpers/axios";
 
 const addCardImageClass =
   "cursor-pointer bg-white hover:border-2 hover:border-blue-500 hover:scale-95 rounded-lg transition-all ease-in-out";
@@ -17,6 +20,17 @@ const addressInputCss =
   "textarea textarea-info w-full bg_sec text-white mb-2 text-[14px] h-32 text-white";
 
 const CartPage = () => {
+  const [exchangeProductWithTickets, setExchangeProductWithTickets] =
+    useState(false);
+
+  const [apartment, setApartment] = useState("");
+  const [city, setCity] = useState("");
+  const [zipCode, setZipCode] = useState("");
+  const [detailAddress, setDetailAddress] = useState("");
+
+  const [stripePromise, setStripePromise] = useState(null);
+  const [clientSecret, setClientSecret] = useState("");
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -66,20 +80,23 @@ const CartPage = () => {
     dispatch(orderPlace(order));
   };
 
-  const [paymentMethod, setPaymentMethod] = useState(-1);
-  const [exchangeProductWithTickets, setExchangeProductWithTickets] =
-    useState(false);
+  useEffect(() => {
+    axiosInstance.get(`/payment/stripe/get-key`).then(async (res) => {
+      const { publishableKey } = await res.data;
+      setStripePromise(loadStripe(publishableKey));
+    });
+  }, []);
 
-  // console.log(exchangeProductWithTickets);
-
-  const [cardNo, setCardNo] = useState("");
-  const [cardExpiary, setCardExpiary] = useState("");
-  const [cardVcc, setCardVcc] = useState("");
-
-  const [apartment, setApartment] = useState("");
-  const [city, setCity] = useState("");
-  const [zipCode, setZipCode] = useState("");
-  const [detailAddress, setDetailAddress] = useState("");
+  useEffect(() => {
+    console.log(totalPrice);
+    const data = { amount: totalPrice };
+    axiosInstance
+      .post(`/payment/stripe/create-intent`, data)
+      .then(async (res) => {
+        const { clientSecret } = await res.data;
+        setClientSecret(clientSecret);
+      });
+  }, [totalPrice > 0 && cart]);
 
   return (
     <div>
@@ -200,7 +217,16 @@ const CartPage = () => {
 
           <div className="bg_sec rounded-xl shadow-lg my-6 p-6">
             <p className="prim_text_2xl font-bold  ">Payment Method</p>
-            <div className="grid grid-cols-4 justify-start items-center gap-0 my-6">
+            {clientSecret && stripePromise && (
+              <Elements
+                stripe={stripePromise}
+                options={{ clientSecret, appearance: { theme: "night" } }}
+              >
+                <CheckOutForm />
+              </Elements>
+            )}
+
+            {/* <div className="grid grid-cols-4 justify-start items-center gap-0 my-6">
               <Image
                 src={pp}
                 width={71}
@@ -249,17 +275,17 @@ const CartPage = () => {
                 }
                 onClick={() => setPaymentMethod(4)}
               />
-            </div>
+            </div> */}
 
-            <input
+            {/* <input
               type="text"
               placeholder="Card No"
               value={cardNo}
               onChange={(e) => setCardNo(e.target.value)}
               className={cardInputCss}
-            />
+            /> */}
 
-            <div className="flex lg:flex-row sm:flex-col gap-2">
+            {/* <div className="flex lg:flex-row sm:flex-col gap-2">
               <input
                 type="text"
                 placeholder="Expire date MM/YY"
@@ -275,14 +301,14 @@ const CartPage = () => {
                 onChange={(e) => setCardVcc(e.target.value)}
                 className={cardInputCss}
               />
-            </div>
+            </div> */}
 
-            <button
+            {/* <button
               type=""
               className="mt-4 normal-case btn flex justify-center items-center bg-neutral w-full  rounded-xl text-[14px] font-semibold font-sora text-white"
             >
               Add Card
-            </button>
+            </button> */}
           </div>
 
           {/* ADDRESS */}
