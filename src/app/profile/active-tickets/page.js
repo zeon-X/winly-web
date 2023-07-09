@@ -13,21 +13,6 @@ const ActiveTicketsPage = () => {
   }, []);
 
   const tickets = useSelector((state) => state.ticket.tickets);
-
-  const [activeTickets, setActiveTickets] = useState([
-    {
-      title: "Win",
-      prize_name: "Iphone 14 pro max",
-      prize_details: "",
-      draw_date: "29 June,2023",
-    },
-    {
-      title: "Win",
-      prize_name: "Tesla V4 Car",
-      prize_details: "",
-      draw_date: "29 June,2023",
-    },
-  ]);
   return (
     <div>
       <div>
