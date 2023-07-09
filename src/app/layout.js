@@ -4,6 +4,8 @@ import Nossr from "@components/nossr";
 import "@styles/globals.css";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import { Suspense } from "react";
+import LoadingLandingPage from "./loading";
 
 export default function RootLayout({ children }) {
   return (
@@ -11,7 +13,9 @@ export default function RootLayout({ children }) {
       <body className="main">
         <Nossr>
           <Provider store={store}>
-            <Drawer>{children}</Drawer>
+            <Suspense fallback={<LoadingLandingPage />}>
+              <Drawer>{children}</Drawer>
+            </Suspense>
           </Provider>
         </Nossr>
         {/* <script src="../path/to/flowbite/dist/flowbite.min.js"></script> */}

@@ -1,6 +1,8 @@
 "use client";
 import ClientDashboardNav from "@components/navbar/ClientDashboardNav";
 import "@styles/globals.css";
+import { Suspense } from "react";
+import LoadingProfile from "./loading";
 
 export default function ProfileLayout({ children }) {
   return (
@@ -11,7 +13,10 @@ export default function ProfileLayout({ children }) {
       </div>
 
       {/* NEVIGATION PAGE LOADER DIV */}
-      <div className="lg:w-3/4 sm:w-full">{children}</div>
+
+      <Suspense fallback={<LoadingProfile />}>
+        <div className="lg:w-3/4 sm:w-full">{children}</div>
+      </Suspense>
     </section>
   );
 }

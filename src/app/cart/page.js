@@ -106,6 +106,7 @@ const CartPage = () => {
                         height={127}
                         width={137}
                         alt={item?.product?.title + " image"}
+                        className="rounded-3xl"
                       />
 
                       <div>
@@ -165,7 +166,7 @@ const CartPage = () => {
                 htmlFor="exeProductWithTkt"
                 className="prim_text_lg text-white cursor-pointer"
               >
-                Exchange the product with EXTRA ticket
+                Exchange the products with EXTRA ticket
               </label>
             </div>
           </div>

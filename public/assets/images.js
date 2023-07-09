@@ -11,7 +11,7 @@ import productImage3 from "./offers/p3.png";
 import productImage4 from "./offers/p4.png";
 
 //LOADING
-import loadingAnimation from "./loading/loading1.png";
+import loadingAnimation from "./logo/Winly-Logo-1.png";
 
 // LANDING PAGE IMAGES
 

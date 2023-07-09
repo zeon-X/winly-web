@@ -32,6 +32,7 @@ const ActiveTicketsPage = () => {
   ]);
 
   const router = useRouter();
+
   return (
     <div>
       <div>

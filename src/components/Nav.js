@@ -55,9 +55,9 @@ const Nav = () => {
           {/* LEFT SIDE NAV ITEMS */}
           <div className="prim_text_lg_reg justify-center items-center gap-8  hidden lg:flex">
             <Link href={"/"}>Home</Link>
-            <Link href={"/products"}>Products</Link>
-            <Link href={"/contact"}>Neel Help? Contact us</Link>
-            <Link href={"/"}>
+            <Link href={"/"}>Products</Link>
+            <Link href={"/"}>Neel Help? Contact us</Link>
+            <Link href={"tel:08056482623"}>
               Call <span className="primary-red">08056482623</span>
             </Link>
           </div>
