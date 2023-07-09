@@ -53,22 +53,22 @@ const PaymentMethod = ({ po }) => {
 
 const PaymentOptionsPage = () => {
   const [paymentOptions, setPaymentOptions] = useState([
-    {
-      nameOnCard: "Md. Shefat Zeon",
-      cardNo: "",
-      expiresOn: "",
-      cardName: "PayPal",
-      email: "shefatzeon212@gmail.com",
-      icon: pp,
-    },
-    {
-      nameOnCard: "Md. Shefat Zeon",
-      cardNo: "",
-      expiresOn: "",
-      cardName: "Master Card",
-      email: "mdshefatzeon@gmail.com",
-      icon: mc,
-    },
+    // {
+    //   nameOnCard: "Md. Shefat Zeon",
+    //   cardNo: "",
+    //   expiresOn: "",
+    //   cardName: "PayPal",
+    //   email: "shefatzeon212@gmail.com",
+    //   icon: pp,
+    // },
+    // {
+    //   nameOnCard: "Md. Shefat Zeon",
+    //   cardNo: "",
+    //   expiresOn: "",
+    //   cardName: "Master Card",
+    //   email: "mdshefatzeon@gmail.com",
+    //   icon: mc,
+    // },
   ]);
 
   // const [addPaymentMethod, setAddPaymentMethod] = useState(false);

@@ -89,7 +89,10 @@ const ClientDashboardNav = () => {
           );
         })}
 
-        <div className="flex gap-3 p-4" onClick={() => dispatch(signout())}>
+        <div
+          className="flex gap-3 p-4 cursor-pointer"
+          onClick={() => dispatch(signout())}
+        >
           {logout} <p className="prim_text_lg_reg">Logout</p>
         </div>
       </div>

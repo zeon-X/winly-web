@@ -12,7 +12,7 @@ const ItemDisplay = () => {
     dispatch(getProducts());
   }, []);
 
-  const products = useSelector((state) => state.product.products);
+  const products = useSelector((state) => state?.product?.products);
 
   const handleCart = (item) => {
     const qty = 1;
@@ -32,10 +32,10 @@ const ItemDisplay = () => {
                 {/* TICKET PRIZE PIC */}
 
                 <Image
-                  src={item.campaign.campaign_id.img.url}
+                  src={item?.campaign?.campaign_id?.img?.url}
                   height={349}
                   width={443}
-                  alt={item.campaign.campaign_id.img.key + " image"}
+                  alt={item?.campaign?.campaign_id?.img?.key + " image"}
                   className="lg:rounded-[20px] sm:rounded-[8px]"
                 />
 
@@ -48,7 +48,7 @@ const ItemDisplay = () => {
                         Win
                       </p>
                       <p className="lg:text-[40px] sm:text-[16px] font-sora font-bold">
-                        {item.campaign.campaign_name}
+                        {item?.campaign?.campaign_name}
                       </p>
                       <p className="text-[#F19C08] flex gap-2 items-center lg:text-[20px] sm:text-[10px]">
                         <svg
@@ -64,22 +64,22 @@ const ItemDisplay = () => {
                             fill="#F19C08"
                           />
                         </svg>{" "}
-                        <span>Buy a {item.title} and make it yours!</span>
+                        <span>Buy a {item?.title} and make it yours!</span>
                       </p>
                     </div>
                     <Image
-                      src={item.img.url}
+                      src={item?.img?.url}
                       height={133}
                       width={140}
                       alt={item?.product?.name + " image"}
-                      className="rounded-[20px] lg:block sm:hidden "
+                      className="rounded-[20px] lg:block sm:hidden mt-2"
                     />
                     <Image
-                      src={item.img.url}
+                      src={item?.img?.url}
                       height={58}
                       width={61}
-                      alt={item.title + " image"}
-                      className="rounded-[8px] lg:hidden sm:block"
+                      alt={item?.title + " image"}
+                      className="rounded-[8px] lg:hidden sm:block mt-1"
                     />
                   </div>
                   {/* DIVIDER */}
@@ -93,7 +93,7 @@ const ItemDisplay = () => {
                         <div className="p-4 bg_sec_light rounded-[35px] h-full flex justify-evenly items-center">
                           <div className="flex flex-col justify-center items-center">
                             <p className="lg:text-[22px] sm:text-[15px] font-semibold">
-                              {item.orderCount}
+                              {item?.orderCount}
                             </p>
                             <p className="lg:text-[11px] sm:text-[7px]">SOLD</p>
                           </div>
@@ -105,7 +105,7 @@ const ItemDisplay = () => {
                               OUT OF
                             </p>
                             <p className="lg:text-[22px] sm:text-[15px] font-semibold">
-                              {item.stockQty}
+                              {item?.stockQty}
                             </p>
                           </div>
                         </div>
