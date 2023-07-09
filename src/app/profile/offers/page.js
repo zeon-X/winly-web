@@ -7,47 +7,48 @@ import {
   productImage4,
 } from "../../../../public/assets/images";
 import OfferCard from "@components/offers/OfferCard";
+import { useRouter } from "next/navigation";
 
 const OfferPage = () => {
   const [offers, setOffers] = useState([
-    {
-      title: "GET 15% OFF",
-      motive: "Add these items and",
-      productsData: [
-        {
-          image: productImage1,
-          title: "Escalade Sport Platinum",
-          prize: "Win macbook pro",
-          price: "$256",
-        },
-        {
-          image: productImage2,
-          title: "Escalade Sport Platinum",
-          prize: "Win macbook pro",
-          price: "$256",
-        },
-      ],
-    },
-    {
-      title: "GET 45% OFF",
-      motive: "Add these items and",
-      productsData: [
-        {
-          image: productImage3,
-          title: "Escalade Sport Platinum",
-          prize: "Win macbook pro",
-          price: "$256",
-        },
-        {
-          image: productImage4,
-          title: "Escalade Sport Platinum",
-          prize: "Win macbook pro",
-          price: "$256",
-        },
-      ],
-    },
+    // {
+    //   title: "GET 15% OFF",
+    //   motive: "Add these items and",
+    //   productsData: [
+    //     {
+    //       image: productImage1,
+    //       title: "Escalade Sport Platinum",
+    //       prize: "Win macbook pro",
+    //       price: "$256",
+    //     },
+    //     {
+    //       image: productImage2,
+    //       title: "Escalade Sport Platinum",
+    //       prize: "Win macbook pro",
+    //       price: "$256",
+    //     },
+    //   ],
+    // },
+    // {
+    //   title: "GET 45% OFF",
+    //   motive: "Add these items and",
+    //   productsData: [
+    //     {
+    //       image: productImage3,
+    //       title: "Escalade Sport Platinum",
+    //       prize: "Win macbook pro",
+    //       price: "$256",
+    //     },
+    //     {
+    //       image: productImage4,
+    //       title: "Escalade Sport Platinum",
+    //       prize: "Win macbook pro",
+    //       price: "$256",
+    //     },
+    //   ],
+    // },
   ]);
-
+  const router = useRouter();
   return (
     <div>
       <div>
@@ -57,7 +58,10 @@ const OfferPage = () => {
             <p className="prim_text_lg_reg mb-3">
               Start Shopping to avail offers
             </p>
-            <button className="btn_primary w-full lg:min-w-[300px]">
+            <button
+              onClick={() => router.push("/")}
+              className="btn_primary w-full max-w-[300px]"
+            >
               Start Shopping
             </button>
           </div>

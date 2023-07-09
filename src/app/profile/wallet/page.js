@@ -8,16 +8,16 @@ const addCardImageClass =
 
 const WalletPage = () => {
   const [topUpMethod, setTopUpMethod] = useState([
-    {
-      image: wcc,
-      name: "Winly Card",
-      no: "",
-    },
-    {
-      image: visa,
-      name: "Visa Card",
-      no: "4043 1023 0000 1234",
-    },
+    // {
+    //   image: wcc,
+    //   name: "Winly Card",
+    //   no: "",
+    // },
+    // {
+    //   image: visa,
+    //   name: "Visa Card",
+    //   no: "4043 1023 0000 1234",
+    // },
   ]);
   return (
     <div>
@@ -29,13 +29,13 @@ const WalletPage = () => {
         </div>
 
         <p className="mt-10 mb-4 prim_text_lg">Select Top-up Method</p>
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-6">
+        <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-6">
           {topUpMethod?.map((card, index) => {
             return (
               <div
                 key={index}
                 style={{ backgroundColor: "white" }}
-                className="rounded-xl p-4 min-h-[136px]  flex flex-col justify-center items-center"
+                className="rounded-xl p-4  min-h-[136px]  flex flex-col justify-center items-center"
               >
                 <Image src={card?.image} width={106} alt={card?.name} />
                 {/* {(card?.no !== "" || card?.no !== null) && (
@@ -46,10 +46,10 @@ const WalletPage = () => {
           })}
 
           <div
-            style={{ backgroundColor: "white" }}
-            className="rounded-xl p-4 min-h-[136px]  flex flex-col justify-center items-center"
+            // style={{ backgroundColor: "white" }}
+            className="rounded-xl p-4 min-h-[136px] bg_sec flex flex-col justify-center items-center"
           >
-            <p className="prim_text_md mb-2" style={{ color: "black" }}>
+            <p className="prim_text_md mb-2" style={{ color: "white" }}>
               Debit/ Credit card
             </p>
             <div className="flex gap-2">

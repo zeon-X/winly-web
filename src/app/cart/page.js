@@ -4,10 +4,19 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, getCartItems, orderPlace } from "@app/redux/actions";
+import { visa, wcc, mc, cc, pp } from "../../../public/assets/images";
+
+const addCardImageClass =
+  "cursor-pointer bg-white hover:border-2 hover:border-blue-500 hover:scale-95 rounded-lg transition-all ease-in-out";
+const addCardImageClassActive =
+  "cursor-pointer bg-white border-2 border-blue-500 scale-95 rounded-lg";
+
+const cardInputCss =
+  "input input-bordered input-info w-full  bg_sec text-white mb-2 text-[14px]";
+const addressInputCss =
+  "textarea textarea-info w-full bg_sec text-white mb-2 text-[14px] h-32 text-white";
 
 const CartPage = () => {
-  const [address, setAddress] = useState("");
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -57,10 +66,25 @@ const CartPage = () => {
     dispatch(orderPlace(order));
   };
 
+  const [paymentMethod, setPaymentMethod] = useState(-1);
+  const [exchangeProductWithTickets, setExchangeProductWithTickets] =
+    useState(false);
+
+  // console.log(exchangeProductWithTickets);
+
+  const [cardNo, setCardNo] = useState("");
+  const [cardExpiary, setCardExpiary] = useState("");
+  const [cardVcc, setCardVcc] = useState("");
+
+  const [apartment, setApartment] = useState("");
+  const [city, setCity] = useState("");
+  const [zipCode, setZipCode] = useState("");
+  const [detailAddress, setDetailAddress] = useState("");
+
   return (
     <div>
       <div className="flex lg:flex-row sm:flex-col justify-between items-start gap-10">
-        <div className="lg:w-3/4 sm:w-full">
+        <div className="max-w-[936px] lg:w-full sm:w-full mx-auto">
           <p className="prim_text_2xl mb-8">Cart</p>
           {/* PRODUCT */}
           <div className="lg:p-10 sm:p-4 shadow-lg rounded-[24px] grid grid-cols-1 gap-8 bg_sec max-w-[936px]">
@@ -130,14 +154,23 @@ const CartPage = () => {
 
             {/* EXCHANGE WITH WXTRA PRODUCT */}
             <div className="flex justify-start items-center gap-2 mt-8">
-              <input type="checkbox" className="checkbox checkbox-success" />
-              <p className="prim_text_lg">
+              <input
+                id="exeProductWithTkt"
+                type="checkbox"
+                value={exchangeProductWithTickets}
+                onClick={() => setExchangeProductWithTickets((state) => !state)}
+                className="checkbox checkbox-success"
+              />
+              <label
+                htmlFor="exeProductWithTkt"
+                className="prim_text_lg text-white cursor-pointer"
+              >
                 Exchange the product with EXTRA ticket
-              </p>
+              </label>
             </div>
           </div>
         </div>
-        <div className="lg:w-1/4 sm:w-full">
+        <div className="max-w-[391px] lg:w-full sm:w-full mx-auto">
           {/*TOTAL  */}
           <div className="bg_sec rounded-xl shadow-lg">
             <div className="flex justify-between items-center p-6 border-b border-b-neutral">
@@ -163,35 +196,141 @@ const CartPage = () => {
             <div></div>
           </div>
 
-          {/* ADDRESS */}
+          {/* PAYMENT METHOD  */}
 
-          <div className="my-4">
-            <div className="flex justify-between items-center">
-              <div className="form-control w-full">
-                <label className="label">
-                  <span className="label-text text-white font-sora">
-                    Address
-                  </span>
-                </label>
-                <textarea
-                  className="textarea textarea-bordered h-32 bg_sec rounded-xl shadow-lg text-white"
-                  placeholder="Apartment No, Road No, City, Zip Code"
-                  value={address}
-                  onChange={(e) => setAddress(e.target.value)}
-                ></textarea>
-                <label className="label">
-                  <span className="label-text-alt"></span>
-                </label>
-              </div>
+          <div className="bg_sec rounded-xl shadow-lg my-6 p-6">
+            <p className="prim_text_2xl font-bold  ">Payment Method</p>
+            <div className="grid grid-cols-4 justify-start items-center gap-0 my-6">
+              <Image
+                src={pp}
+                width={71}
+                height={71}
+                alt={""}
+                className={
+                  paymentMethod === 1
+                    ? addCardImageClassActive
+                    : addCardImageClass
+                }
+                onClick={() => setPaymentMethod(1)}
+              />
+              <Image
+                src={visa}
+                width={71}
+                height={71}
+                alt={""}
+                className={
+                  paymentMethod === 2
+                    ? addCardImageClassActive
+                    : addCardImageClass
+                }
+                onClick={() => setPaymentMethod(2)}
+              />
+              <Image
+                src={mc}
+                width={71}
+                height={71}
+                alt={""}
+                className={
+                  paymentMethod === 3
+                    ? addCardImageClassActive
+                    : addCardImageClass
+                }
+                onClick={() => setPaymentMethod(3)}
+              />
+              <Image
+                src={cc}
+                width={71}
+                height={71}
+                alt={""}
+                className={
+                  paymentMethod === 4
+                    ? addCardImageClassActive
+                    : addCardImageClass
+                }
+                onClick={() => setPaymentMethod(4)}
+              />
             </div>
+
+            <input
+              type="text"
+              placeholder="Card No"
+              value={cardNo}
+              onChange={(e) => setCardNo(e.target.value)}
+              className={cardInputCss}
+            />
+
+            <div className="flex lg:flex-row sm:flex-col gap-2">
+              <input
+                type="text"
+                placeholder="Expire date MM/YY"
+                value={cardExpiary}
+                onChange={(e) => setCardExpiary(e.target.value)}
+                className={cardInputCss}
+              />
+
+              <input
+                type="text"
+                placeholder="Security code"
+                value={cardVcc}
+                onChange={(e) => setCardVcc(e.target.value)}
+                className={cardInputCss}
+              />
+            </div>
+
+            <button
+              type=""
+              className="mt-4 normal-case btn flex justify-center items-center bg-neutral w-full  rounded-xl text-[14px] font-semibold font-sora text-white"
+            >
+              Add Card
+            </button>
           </div>
 
-          {/* PAYMENT METHOD  */}
+          {/* ADDRESS */}
+
+          <div className="bg_sec rounded-xl shadow-lg my-6 p-6">
+            <p className="prim_text_2xl font-bold mb-4">Address</p>
+
+            <input
+              type="text"
+              placeholder="Apartment"
+              value={apartment}
+              onChange={(e) => setApartment(e.target.value)}
+              className={cardInputCss}
+            />
+
+            <div className="flex lg:flex-row sm:flex-col gap-2">
+              <input
+                type="text"
+                placeholder="City"
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
+                className={cardInputCss}
+              />
+
+              <input
+                type="text"
+                placeholder="Postal Code"
+                value={zipCode}
+                onChange={(e) => setZipCode(e.target.value)}
+                className={cardInputCss}
+              />
+            </div>
+
+            <textarea
+              className={addressInputCss}
+              // className="textarea textarea-bordered"
+              placeholder="Detailed Address"
+              value={detailAddress}
+              onChange={(e) => setDetailAddress(e.target.value)}
+            ></textarea>
+          </div>
+
+          {/* PLACE ORDER BTN */}
           <div className="">
             <button
               onClick={() => handleOrder(cart.cartItems)}
               type=""
-              className="flex justify-center items-center bg-primary w-full py-2 rounded-xl text-[18px] font-semibold text-white"
+              className="mt-4 normal-case btn flex justify-center items-center bg-primary w-full  rounded-xl text-[14px] font-semibold font-sora text-white"
             >
               Place Order
             </button>
