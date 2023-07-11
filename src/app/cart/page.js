@@ -302,9 +302,9 @@ const CartPage = () => {
                 onChange={(e) => setCardVcc(e.target.value)}
                 className={cardInputCss}
               />
-            </div> */}
-
-            {/* <button
+            </div> 
+            
+            <button
               type=""
               className="mt-4 normal-case btn flex justify-center items-center bg-neutral w-full  rounded-xl text-[14px] font-semibold font-sora text-white"
             >
@@ -314,43 +314,45 @@ const CartPage = () => {
 
           {/* ADDRESS */}
 
-          <div className="bg_sec rounded-xl shadow-lg my-6 p-6">
-            <p className="prim_text_2xl font-bold mb-4">Address</p>
-
-            <input
-              type="text"
-              placeholder="Apartment"
-              value={apartment}
-              onChange={(e) => setApartment(e.target.value)}
-              className={cardInputCss}
-            />
-
-            <div className="flex lg:flex-row sm:flex-col gap-2">
-              <input
-                type="text"
-                placeholder="City"
-                value={city}
-                onChange={(e) => setCity(e.target.value)}
-                className={cardInputCss}
-              />
+          {exchangeProductWithTickets && (
+            <div className="bg_sec rounded-xl shadow-lg my-6 p-6">
+              <p className="prim_text_2xl font-bold mb-4">Address</p>
 
               <input
                 type="text"
-                placeholder="Postal Code"
-                value={zipCode}
-                onChange={(e) => setZipCode(e.target.value)}
+                placeholder="Apartment"
+                value={apartment}
+                onChange={(e) => setApartment(e.target.value)}
                 className={cardInputCss}
               />
+
+              <div className="flex lg:flex-row sm:flex-col gap-2">
+                <input
+                  type="text"
+                  placeholder="City"
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
+                  className={cardInputCss}
+                />
+
+                <input
+                  type="text"
+                  placeholder="Postal Code"
+                  value={zipCode}
+                  onChange={(e) => setZipCode(e.target.value)}
+                  className={cardInputCss}
+                />
+              </div>
+
+              <textarea
+                className={addressInputCss}
+                // className="textarea textarea-bordered"
+                placeholder="Detailed Address"
+                value={detailAddress}
+                onChange={(e) => setDetailAddress(e.target.value)}
+              ></textarea>
             </div>
-
-            <textarea
-              className={addressInputCss}
-              // className="textarea textarea-bordered"
-              placeholder="Detailed Address"
-              value={detailAddress}
-              onChange={(e) => setDetailAddress(e.target.value)}
-            ></textarea>
-          </div>
+          )}
 
           {/* PLACE ORDER BTN */}
           <div className="">
