@@ -223,7 +223,7 @@ const CartPage = () => {
                 stripe={stripePromise}
                 options={{ clientSecret, appearance: { theme: "night" } }}
               >
-                <CheckOutForm />
+                <CheckOutForm cart={cart} />
               </Elements>
             )}
 

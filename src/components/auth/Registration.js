@@ -9,16 +9,18 @@ const formInputCss =
   "p-1 focus:outline-none bg-transparent sec_text_xl text-white w-full";
 const formInputWarningCss = "sec_text_sm text-red-500";
 const formInputLabelCss = "prim_text_sm_reg text-white";
+const countryData = require("../../../public/CountryCodes.json");
 
 const Registration = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [gender, setGender] = useState("Male");
-  const [country, setCountry] = useState("");
+  const [country, setCountry] = useState(countryData[1].name);
   const [dob, setDob] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
+  const [countryCode, setCountryCode] = useState("");
 
   const dispatch = useDispatch();
 
@@ -30,9 +32,10 @@ const Registration = () => {
       gender,
       country,
       dob,
-      phone,
+      phone: `${countryCode}${phone}`,
       password,
     };
+    console.log(data);
     dispatch(signUp(data));
     e.preventDefault();
   };
@@ -40,17 +43,6 @@ const Registration = () => {
   return (
     <div>
       <form onSubmit={handleRegistration}>
-        {/* <input
-          type="text"
-          placeholder="Email"
-          className="input input-primary bg-transparent  border-[3px] border-[#1A1A1A] text-white rounded-2xl py-9 font-sora font-semibold w-full"
-        />
-        <input
-          type="text"
-          placeholder="Password"
-          className="input input-primary bg-transparent  border-[3px] border-[#1A1A1A] text-white rounded-2xl py-9 font-sora font-semibold w-full"
-        /> */}
-
         <div className={formDivCss}>
           <label className="label">
             <span className={formInputLabelCss}>First Name</span>
@@ -103,19 +95,21 @@ const Registration = () => {
             <span className={formInputWarningCss}></span>
           </label>
         </div>
-
         <div className={formDivCss}>
           <label className="label">
             <span className={formInputLabelCss}>Country</span>
           </label>
-          <input
-            type="text"
-            placeholder="Country"
+          <select
+            type="select"
             className={formInputCss}
-            name="country"
             value={country}
             onChange={(e) => setCountry(e.target.value)}
-          />
+          >
+            {countryData.map((country) => (
+              <option value={country.name}>{country.name}</option>
+            ))}
+          </select>
+
           <label className="label">
             <span className={formInputWarningCss}></span>
           </label>
@@ -146,7 +140,16 @@ const Registration = () => {
             <label className="label">
               <span className={formInputLabelCss}>Country code</span>
             </label>
-            <input type="text" placeholder="+880" className={formInputCss} />
+            <select
+              type="select"
+              className={formInputCss}
+              value={countryCode}
+              onChange={(e) => setCountryCode(e.target.value)}
+            >
+              {countryData.map((country) => (
+                <option value={country.dial_code}>{country.dial_code}</option>
+              ))}
+            </select>
             <label className="label">
               <span className={formInputWarningCss}></span>
             </label>
