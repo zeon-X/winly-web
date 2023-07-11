@@ -2,6 +2,9 @@
 import React, { useState } from "react";
 import { PaymentElement } from "@stripe/react-stripe-js";
 import { useStripe, useElements } from "@stripe/react-stripe-js";
+import Swal from "sweetalert2";
+import { useDispatch, useSelector } from "react-redux";
+import { orderPlace } from "@app/redux/actions";
 
 /**
  * @author
@@ -15,6 +18,39 @@ export const CheckOutForm = (props) => {
   const [message, setMessage] = useState(null);
   const [isProcessing, setIsProcessing] = useState(false);
 
+  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart.cart);
+
+  const totalItem = cart.cartItems
+    ? Object.keys(cart.cartItems).reduce(function (qty, key) {
+        return qty + cart.cartItems[key].qty;
+      }, 0)
+    : 0;
+
+  const totalPrice = cart.cartItems
+    ? Object.keys(cart.cartItems).reduce((totalPrice, key) => {
+        const { price, qty } = cart.cartItems[key];
+        return totalPrice + price * qty;
+      }, 0)
+    : 0;
+
+  const handleOrder = (cart) => {
+    const order = {
+      orderItems: cart.map((item) => {
+        return {
+          product_id: item.product._id,
+          price: item.price,
+          qty: item.qty,
+          ticketQty: item.product.ticketQty,
+          campaign_id: item.product.campaign.campaign_id,
+        };
+      }),
+      orderTotal: totalPrice,
+      orderID: Math.floor(100000 + Math.random() * 900000),
+    };
+    dispatch(orderPlace(order));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -26,20 +62,29 @@ export const CheckOutForm = (props) => {
 
     setIsProcessing(true);
 
-    const { error } = await stripe.confirmPayment({
+    const { error, paymentIntent } = await stripe.confirmPayment({
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
         return_url: `${window.location.origin}/completion`,
       },
+      redirect: "if_required",
     });
 
-    if (error.type === "card_error" || error.type === "validation_error") {
-      setMessage(error.message);
-    } else {
-      setMessage("An unexpected error occured.");
+    if (paymentIntent && paymentIntent.status === "succeeded") {
+      handleOrder(cart.cartItems);
     }
 
+    if (
+      (error && error.type === "card_error") ||
+      (error && error.type === "validation_error")
+    ) {
+      Swal.fire({
+        icon: "error",
+        title: "Payment Failed!",
+        text: `${error.message}`,
+      });
+    }
     setIsProcessing(false);
   };
 
@@ -61,7 +106,9 @@ export const CheckOutForm = (props) => {
         id="submit"
       ></button>
       {/* Show any error or success messages */}
-      {message && <div id="payment-message">{message}</div>}
+      {message && (
+        <div className="prim_text_lg font-sora text-white">{message}</div>
+      )}
     </form>
   );
 };

@@ -20,8 +20,6 @@ export const orderPlace = (order) => {
           title: "Order Placed!",
           showConfirmButton: false,
           timer: 1000,
-        }).then(() => {
-          window.location.replace("/profile/active-tickets");
         });
       }
     } catch (error) {
