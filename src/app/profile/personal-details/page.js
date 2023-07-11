@@ -20,6 +20,9 @@ const PersoalDetails = () => {
   const [country, setCountry] = useState(user?.country);
   const [dob, setDob] = useState(user?.dob);
   const [phone, setPhone] = useState(user?.phone);
+  const [dialCode, setDialCode] = useState(user?.dialCode);
+
+  console.log(user);
 
   const [disableUpdateBtn, setDisableUpdateBtn] = useState(true);
 
@@ -98,7 +101,12 @@ const PersoalDetails = () => {
               <label className="label">
                 <span className={formInputLabelCss}>Country code</span>
               </label>
-              <input type="text" placeholder="+880" className={formInputCss} />
+              <input
+                type="text"
+                placeholder="+880"
+                className={formInputCss}
+                value={dialCode}
+              />
               <label className="label">
                 <span className={formInputWarningCss}></span>
               </label>
