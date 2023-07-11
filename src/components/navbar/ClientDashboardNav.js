@@ -55,6 +55,8 @@ const ClientDashboardNav = () => {
     },
   ]);
 
+  const [image, setImage] = useState(null);
+
   const userData = JSON.parse(localStorage.getItem("user"));
 
   const profileImg =
@@ -66,13 +68,29 @@ const ClientDashboardNav = () => {
     <div className="w-full flex flex-col gap-6">
       {/* PROFILE INFO */}
       <div className="h-[246px] bg_sec rounded-[24px] lg:flex sm:hidden flex-col justify-center items-center">
-        <Image
-          src={profileImg}
-          height={112}
-          width={112}
-          className="rounded-full"
-          alt={userData?.firstName + "profile picture"}
-        />
+        <div className="relative">
+          <Image
+            src={profileImg}
+            height={112}
+            width={112}
+            className="rounded-full h-[112px] w-[112px] z-0"
+            alt={userData?.firstName + "profile picture"}
+          />
+
+          <label
+            htmlFor="profileImage"
+            className="h-[112px] w-[112px] absolute top-0 cursor-pointer z-10"
+          ></label>
+
+          <input
+            id="profileImage"
+            type="file"
+            name="img"
+            className="hidden"
+            onChange={(e) => setImage(e.target.value)}
+          />
+        </div>
+
         <p className="prim_text_lg mt-[14px]">{userData?.fullName}</p>
         <p className="sec_text_lg">{userData?.email}</p>
       </div>
