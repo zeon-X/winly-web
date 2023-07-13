@@ -201,3 +201,75 @@ export const verifyCode = (data) => {
     }
   };
 };
+
+export const updateImage = (form) => {
+  return async (dispatch) => {
+    try {
+      dispatch({ type: authConstant.PICTURE_REQUEST });
+      const res = await axiosInstance.post(`/user/auth/update/img`, form);
+
+      if (res.status === 200) {
+        const { user, msg } = res.data;
+        window.localStorage.setItem("user", JSON.stringify(user));
+        dispatch({
+          type: authConstant.PICTURE_SUCCESS,
+          payload: user,
+        });
+        Swal.fire({
+          icon: "success",
+          title: `${msg}`,
+          showConfirmButton: false,
+          timer: 1000,
+        });
+      }
+    } catch (err) {
+      const { data } = err.response;
+      dispatch({
+        type: authConstant.PICTURE_FAILURE,
+        payload: { msg: data.msg, status: err.response.status },
+      });
+      Swal.fire({
+        icon: "error",
+        title: `${data.msg}`,
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    }
+  };
+};
+
+export const updateProfile = (data) => {
+  return async (dispatch) => {
+    try {
+      dispatch({ type: authConstant.PROFILE_UPDATE_REQUEST });
+      const res = await axiosInstance.post(`/user/auth/update/profile`, data);
+
+      if (res.status === 200) {
+        const { user, msg } = res.data;
+        window.localStorage.setItem("user", JSON.stringify(user));
+        dispatch({
+          type: authConstant.PICTURE_SUCCESS,
+          payload: user,
+        });
+        Swal.fire({
+          icon: "success",
+          title: `${msg}`,
+          showConfirmButton: false,
+          timer: 1000,
+        });
+      }
+    } catch (err) {
+      const { data } = err.response;
+      dispatch({
+        type: authConstant.PICTURE_FAILURE,
+        payload: { msg: data.msg, status: err.response.status },
+      });
+      Swal.fire({
+        icon: "error",
+        title: `${data.msg}`,
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    }
+  };
+};

@@ -12,36 +12,40 @@ const FocusingPrizeWithProduct = () => {
   const [data, setData] = useState([
     {
       InspirationTitle: "Win",
-      moto: "Buy our Rolax Watch and make it yours",
+      moto: "Buy This Dress",
 
       product: {
         name: "Rolax Watch",
-        coverImage: LTicketPrizeProduct1,
+        coverImage:
+          "https://winly-storage.s3.me-central-1.amazonaws.com/2b840d8d2c49034bd53711e07e2eac35.jpeg",
         galleryImages: [LTicketPrizeProduct1],
         stock: 20000,
         sold: 125000,
       },
 
       prize: {
-        name: "Tesla V3",
-        coverImage: "https://i.ibb.co/B2BXQH3/Rectangle-1.png",
+        name: "Another Dress",
+        coverImage:
+          "https://winly-storage.s3.me-central-1.amazonaws.com/2b840d8d2c49034bd53711e07e2eac35.jpeg",
       },
     },
     {
       InspirationTitle: "Win",
-      moto: "Buy our Rolax Watch and make it yours",
+      moto: "Buy This Dress",
 
       product: {
         name: "Rolax Watch",
-        coverImage: LTicketPrizeProduct1,
+        coverImage:
+          "https://winly-storage.s3.me-central-1.amazonaws.com/2b840d8d2c49034bd53711e07e2eac35.jpeg",
         galleryImages: [LTicketPrizeProduct1],
         stock: 20000,
         sold: 125000,
       },
 
       prize: {
-        name: "Iphone 14 pro max",
-        coverImage: "https://i.ibb.co/w6pPnXD/Picture1.jpg",
+        name: "Another Dress",
+        coverImage:
+          "https://winly-storage.s3.me-central-1.amazonaws.com/2b840d8d2c49034bd53711e07e2eac35.jpeg",
       },
     },
   ]);
@@ -73,14 +77,6 @@ const FocusingPrizeWithProduct = () => {
             }}
             className="relative max-h-[859px] h-full rounded-[24px]"
           >
-            {/* <Image
-              src={data[selectedItem]?.prize?.coverImage}
-              height={859}
-              width={1040}
-              alt=""
-              className="opacity-0 transition-opacity duration-1000 rounded-[24px]"
-              onLoadingComplete={(img) => img.classList.remove("opacity-0")}
-            /> */}
             <div className="absolute top-0 w-full h-full">
               <div
                 className="p-4 absolute bottom-0 w-full"

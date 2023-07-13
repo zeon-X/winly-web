@@ -6,7 +6,8 @@ import Image from "next/image";
 
 const WinnerPrizeDisplay = () => {
   const [data, setData] = useState({
-    image: LWinnerPrize1,
+    image:
+      "https://winly-storage.s3.me-central-1.amazonaws.com/banner_74cab9ce-79c5-49aa-88d5-6ce11366f385.jpeg",
   });
   return (
     <div>

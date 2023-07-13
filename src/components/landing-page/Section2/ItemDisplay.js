@@ -12,7 +12,7 @@ const ItemDisplay = () => {
     dispatch(getProducts());
   }, []);
 
-  const products = useSelector((state) => state?.product?.products);
+  const products = [];
 
   const handleCart = (item) => {
     const qty = 1;

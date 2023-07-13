@@ -20,16 +20,18 @@ const SellingFastProducts = () => {
       moto: "",
 
       product: {
-        name: "Iphone 14 pro max",
-        coverImage: LProduct3,
+        name: "Salwar kamiz",
+        coverImage:
+          "https://winly-storage.s3.me-central-1.amazonaws.com/2b840d8d2c49034bd53711e07e2eac35.jpeg",
         galleryImages: [LProduct3],
         stock: 20000,
         sold: 12500,
       },
 
       prize: {
-        name: "Tesla V3",
-        coverImage: "https://i.ibb.co/B2BXQH3/Rectangle-1.png",
+        name: "Salwar kamiz",
+        coverImage:
+          "https://winly-storage.s3.me-central-1.amazonaws.com/2b840d8d2c49034bd53711e07e2eac35.jpeg",
       },
     },
     {
@@ -37,8 +39,9 @@ const SellingFastProducts = () => {
       moto: "",
 
       product: {
-        name: "Iphone 14 pro max",
-        coverImage: LProduct2,
+        name: "Salwar Kamiz",
+        coverImage:
+          "https://winly-storage.s3.me-central-1.amazonaws.com/5b4fc687-b93b-4141-aeb6-1bd82db75e671663054576612-Antheaa-Women-Dresses-631663054576038-1.webp",
         galleryImages: [LProduct2],
         stock: 20000,
         sold: 12500,
@@ -54,8 +57,9 @@ const SellingFastProducts = () => {
       moto: "",
 
       product: {
-        name: "Iphone 14 pro max",
-        coverImage: LProduct1,
+        name: "Salwar Kamiz",
+        coverImage:
+          "https://winly-storage.s3.me-central-1.amazonaws.com/product-jpeg-500x500.webp",
         galleryImages: [LProduct3],
         stock: 20000,
         sold: 15500,
