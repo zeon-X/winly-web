@@ -114,6 +114,49 @@ export default (state = initState, action) => {
         ...state,
         error: action.payload,
         verified: false,
+        loading: false,
+      };
+      break;
+    case authConstant.PICTURE_REQUEST:
+      state = {
+        ...state,
+        loading: true,
+        error: null,
+      };
+      break;
+    case authConstant.PICTURE_SUCCESS:
+      state = {
+        ...state,
+        loading: false,
+        error: null,
+        user: action.payload,
+      };
+    case authConstant.PICTURE_FAILURE:
+      state = {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+      break;
+    case authConstant.PROFILE_UPDATE_REQUEST:
+      state = {
+        ...state,
+        loading: true,
+        error: null,
+      };
+      break;
+    case authConstant.PROFILE_UPDATE_SUCCESS:
+      state = {
+        ...state,
+        loading: false,
+        error: null,
+        user: action.payload,
+      };
+    case authConstant.PROFILE_UPDATE_FAILURE:
+      state = {
+        ...state,
+        loading: false,
+        error: action.payload,
       };
       break;
   }

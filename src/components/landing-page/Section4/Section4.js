@@ -11,33 +11,7 @@ import Winniers from "./Winniers";
 
 const Section4 = () => {
   const [startAt, setStartAt] = useState(0);
-  const [data, setData] = useState([
-    {
-      name: "Rinku Sing",
-      winningOn: "Lancer V86X",
-
-      announce: "11:55 am 11 may, 2023 ",
-      ticketNo: "836846577778 ",
-      prizeImage: "https://i.ibb.co/n3chgg2/Rectangle-51.png",
-    },
-    {
-      name: "Rinku Sing",
-      winningOn: "Lancer V86X",
-
-      announce: "11:55 am 11 may, 2023 ",
-      ticketNo: "836846577778 ",
-      prizeImage: "https://i.ibb.co/L0xTMTj/cpphoto5.jpg",
-    },
-    {
-      name: "Rinku Sing",
-      winningOn: "Lancer V86X",
-
-      announce: "11:55 am 11 may, 2023 ",
-      ticketNo: "836846577778 ",
-      prizeImage:
-        "https://i.ibb.co/5B7JgGg/2023-BMW-i7-1671623434776-1671623440678-1671623440678.webp",
-    },
-  ]);
+  const [data, setData] = useState([]);
 
   const handleLeftClick = () => {
     if (startAt > 0) {

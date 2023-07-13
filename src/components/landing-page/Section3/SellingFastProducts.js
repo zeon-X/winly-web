@@ -14,8 +14,9 @@ const SellingFastProducts = () => {
       moto: "",
 
       product: {
-        name: "Iphone 14 pro max",
-        coverImage: "https://i.ibb.co/N65Q0yT/i1.png",
+        name: "Salwar Kamiz",
+        coverImage:
+          "https://winly-storage.s3.me-central-1.amazonaws.com/5b4fc687-b93b-4141-aeb6-1bd82db75e671663054576612-Antheaa-Women-Dresses-631663054576038-1.webp",
         galleryImages: ["https://i.ibb.co/N65Q0yT/i1.png"],
         stock: 20000,
         sold: 12500,
@@ -31,8 +32,9 @@ const SellingFastProducts = () => {
       moto: "",
 
       product: {
-        name: "Iphone 14 pro max",
-        coverImage: "https://i.ibb.co/v3Zs7pW/i2.png",
+        name: "Salwar Kamiz",
+        coverImage:
+          "https://winly-storage.s3.me-central-1.amazonaws.com/5b4fc687-b93b-4141-aeb6-1bd82db75e671663054576612-Antheaa-Women-Dresses-631663054576038-1.webp",
         galleryImages: ["https://i.ibb.co/v3Zs7pW/i2.png"],
         stock: 20000,
         sold: 12500,
@@ -41,74 +43,6 @@ const SellingFastProducts = () => {
       prize: {
         name: "Tesla V3",
         coverImage: "https://i.ibb.co/B2BXQH3/Rectangle-1.png",
-      },
-    },
-    {
-      InspirationTitle: "Win",
-      moto: "",
-
-      product: {
-        name: "Iphone 14 pro max",
-        coverImage: "https://i.ibb.co/42hN3qx/i3.png",
-        galleryImages: ["https://i.ibb.co/42hN3qx/i3.png"],
-        stock: 20000,
-        sold: 15500,
-      },
-
-      prize: {
-        name: "Tesla V3",
-        coverImage: "https://i.ibb.co/B2BXQH3/Rectangle-1.png",
-      },
-    },
-    {
-      InspirationTitle: "Win",
-      moto: "",
-
-      product: {
-        name: "Iphone 14 pro max",
-        coverImage: "https://i.ibb.co/DKwnzFJ/i4.png",
-        galleryImages: ["https://i.ibb.co/DKwnzFJ/i4.png"],
-        stock: 20000,
-        sold: 15500,
-      },
-
-      prize: {
-        name: "Tesla V3",
-        coverImage: "https://i.ibb.co/f8rwKq9/Picture1.png",
-      },
-    },
-    {
-      InspirationTitle: "Win",
-      moto: "",
-
-      product: {
-        name: "Samsung Level U2 ",
-        coverImage: "https://i.ibb.co/WsW3TjX/i5.png",
-        galleryImages: ["https://i.ibb.co/WsW3TjX/i5.png"],
-        stock: 20000,
-        sold: 15500,
-      },
-
-      prize: {
-        name: "Tesla V3",
-        coverImage: "https://i.ibb.co/gMFq5CW/Picture2.png",
-      },
-    },
-    {
-      InspirationTitle: "Win",
-      moto: "",
-
-      product: {
-        name: "Samsung Level U2 ",
-        coverImage: "https://i.ibb.co/gMFq5CW/Picture2.png",
-        galleryImages: ["https://i.ibb.co/gMFq5CW/Picture2.png"],
-        stock: 20000,
-        sold: 15500,
-      },
-
-      prize: {
-        name: "Tesla V3",
-        coverImage: "https://i.ibb.co/gMFq5CW/Picture2.png",
       },
     },
   ]);

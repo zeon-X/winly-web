@@ -2,22 +2,25 @@
 import React, { useState } from "react";
 import { visa, wcc, mc, cc, pp } from "../../../../public/assets/images";
 import Image from "next/image";
+import { useSelector } from "react-redux";
 
 const addCardImageClass =
   "cursor-pointer bg-white hover:border hover:border-blue-500 rounded-lg";
 
 const WalletPage = () => {
+  const user = JSON.parse(localStorage.getItem("user"));
+
   const [topUpMethod, setTopUpMethod] = useState([
-    // {
-    //   image: wcc,
-    //   name: "Winly Card",
-    //   no: "",
-    // },
-    // {
-    //   image: visa,
-    //   name: "Visa Card",
-    //   no: "4043 1023 0000 1234",
-    // },
+    {
+      image: wcc,
+      name: "Winly Card",
+      no: "",
+    },
+    {
+      image: visa,
+      name: "Visa Card",
+      no: "4043 1023 0000 1234",
+    },
   ]);
   return (
     <div>
@@ -25,7 +28,9 @@ const WalletPage = () => {
         <p className="prim_text_2xl mb-8">Wallet</p>
         <div className="max-w-[640px] min-h-[183px] bg_sec rounded-xl flex flex-col justify-center items-center">
           <p className="prim_text_lg_reg">Available balance for withdrawal</p>
-          <p className="font-sora text-white text-[40px]">$550</p>
+          <p className="font-sora text-white text-[40px]">
+            AED {user?.wallet?.available > 0 ? user?.wallet?.available : 0}
+          </p>
         </div>
 
         <p className="mt-10 mb-4 prim_text_lg">Select Top-up Method</p>

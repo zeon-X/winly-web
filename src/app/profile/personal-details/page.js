@@ -1,5 +1,10 @@
 "use client";
+import { updateProfile } from "@app/redux/actions";
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Swal from "sweetalert2";
+import ReactModal from "react-modal";
+import PasswordInput from "@components/auth/PasswordInput";
 
 const formDivCss =
   "form-control bg-info px-6 py-2 rounded-[16px] w-full max-width-className";
@@ -8,10 +13,13 @@ const formInputCss =
 const formInputWarningCss = "sec_text_sm text-red-500";
 const formInputLabelCss = "prim_text_sm_reg text-white";
 
+const countryData = require("../../../../public/CountryCodes.json");
+
 const PersoalDetails = () => {
   const user = JSON.parse(localStorage.getItem("user"));
 
-  console.log(user);
+  const dispatch = useDispatch();
+  const auth = useSelector((state) => state.auth);
 
   const [firstName, setFirstName] = useState(user?.firstName);
   const [lastName, setLastName] = useState(user?.lastName);
@@ -21,21 +29,62 @@ const PersoalDetails = () => {
   const [dob, setDob] = useState(user?.dob);
   const [phone, setPhone] = useState(user?.phone);
   const [dialCode, setDialCode] = useState(user?.dialCode);
-
-  console.log(user);
+  const [password, setPassword] = useState("faysal124");
+  const [show, setShow] = useState(false);
 
   const [disableUpdateBtn, setDisableUpdateBtn] = useState(true);
 
+  const handleProfileUpdate = (e) => {
+    const data = {
+      firstName,
+      lastName,
+      gender,
+      country,
+      dob,
+      phone,
+      dialCode,
+      password,
+    };
+    dispatch(updateProfile(data));
+    e.preventDefault();
+    setShow(false);
+  };
+
   useEffect(() => {
     if (
-      user?.firstName != firstName ||
-      user?.lastName != lastName ||
-      user?.phone != phone
+      user?.firstName !== firstName ||
+      user?.lastName !== lastName ||
+      user?.phone !== phone ||
+      user?.gender !== gender ||
+      user?.country !== country ||
+      user?.dob !== dob ||
+      user?.dialCode !== dialCode
     )
       setDisableUpdateBtn((state) => {
         !state;
       });
-  }, [firstName, lastName, phone]);
+  }, [firstName, lastName, gender, country, dob, phone, dialCode]);
+
+  if (auth.loading === true) {
+    Swal.showLoading();
+  }
+
+  const customStyles = {
+    overlay: {
+      backgroundColor: "rgba(0, 0, 0, 0.6)",
+    },
+    content: {
+      top: "50%",
+      left: "50%",
+      right: "auto",
+      bottom: "auto",
+      marginRight: "-50%",
+      transform: "translate(-50%, -50%)",
+      backgroundColor: "#000",
+      padding: 50,
+      borderRadius: 20,
+    },
+  };
 
   return (
     <div>
@@ -86,7 +135,7 @@ const PersoalDetails = () => {
               className={formInputCss}
               name="dob"
               value={dob}
-              disabled
+              onChange={(e) => setDob(e.target.value)}
             />
             <label className="label">
               <span className={formInputWarningCss}></span>
@@ -101,12 +150,16 @@ const PersoalDetails = () => {
               <label className="label">
                 <span className={formInputLabelCss}>Country code</span>
               </label>
-              <input
-                type="text"
-                placeholder="+880"
+              <select
+                type="select"
                 className={formInputCss}
                 value={dialCode}
-              />
+                onChange={(e) => setDialCode(e.target.value)}
+              >
+                {countryData.map((country) => (
+                  <option value={country.dial_code}>{country.dial_code}</option>
+                ))}
+              </select>
               <label className="label">
                 <span className={formInputWarningCss}></span>
               </label>
@@ -132,14 +185,16 @@ const PersoalDetails = () => {
             <label className="label">
               <span className={formInputLabelCss}>Gender</span>
             </label>
-            <input
-              type="text"
-              placeholder="Select Gender"
+            <select
+              type="select"
               className={formInputCss}
-              name="gender"
               value={gender}
-              disabled
-            />
+              onChange={(e) => setGender(e.target.value)}
+            >
+              <option value={"Male"}>Male</option>
+              <option value={"Female"}>Female</option>
+              <option value={"Others"}>Others</option>
+            </select>
             <label className="label">
               <span className={formInputWarningCss}></span>
             </label>
@@ -149,14 +204,16 @@ const PersoalDetails = () => {
             <label className="label">
               <span className={formInputLabelCss}>Country</span>
             </label>
-            <input
-              type="text"
-              placeholder="Your Country"
+            <select
+              type="select"
               className={formInputCss}
-              name="country"
               value={country}
-              disabled
-            />
+              onChange={(e) => setCountry(e.target.value)}
+            >
+              {countryData.map((country) => (
+                <option value={country.name}>{country.name}</option>
+              ))}
+            </select>
             <label className="label">
               <span className={formInputWarningCss}></span>
             </label>
@@ -168,9 +225,38 @@ const PersoalDetails = () => {
             value="Update"
             className="btn_gray btn "
             disabled={disableUpdateBtn}
+            onClick={(e) => {
+              setShow(true), e.preventDefault();
+            }}
           />
         </form>
       </div>
+      <ReactModal
+        isOpen={show}
+        style={customStyles}
+        onRequestClose={() => setShow(false)}
+      >
+        <form>
+          <PasswordInput
+            name={"password"}
+            placeholder={"Your Password"}
+            labelText={"Password"}
+            errorText={""}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+
+          <div className="font-sora flex justify-between items-center mt-4">
+            <button
+              type="submit"
+              className="mt-4 normal-case btn flex justify-center items-center bg-primary w-full  rounded-xl text-[14px] font-semibold font-sora text-white"
+              onClick={handleProfileUpdate}
+            >
+              Confirm Update
+            </button>
+          </div>
+        </form>
+      </ReactModal>
     </div>
   );
 };
