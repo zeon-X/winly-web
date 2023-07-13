@@ -23,18 +23,4 @@ axiosInstance.interceptors.request.use((req) => {
   return req;
 });
 
-axiosInstance.interceptors.response.use(
-  (res) => {
-    return res;
-  },
-  (error) => {
-    const status = error.response ? error.response.status : 500;
-    if (status && status === 500) {
-      localStorage.clear();
-      store.dispatch({ type: authConstant.LOGOUT_SUCCESS });
-    }
-    return Promise.reject(error);
-  }
-);
-
 export default axiosInstance;

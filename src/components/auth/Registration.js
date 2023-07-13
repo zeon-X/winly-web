@@ -32,7 +32,7 @@ const Registration = () => {
       gender,
       country,
       dob,
-      phone: `${countryCode}${phone}`,
+      phone,
       password,
       dialCode: countryCode,
     };
