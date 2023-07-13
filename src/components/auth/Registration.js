@@ -34,6 +34,7 @@ const Registration = () => {
       dob,
       phone: `${countryCode}${phone}`,
       password,
+      dialCode: countryCode,
     };
     console.log(data);
     dispatch(signUp(data));
